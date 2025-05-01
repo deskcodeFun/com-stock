@@ -1,1 +1,11 @@
 @import 'tailwindcss';
+
+:root {
+  --color-p-blue: #001253;
+  --color-s-blue: #fafbfe;
+  --color-p-gray: #938d8d;
+  --color-s-gray: #f1f0f0;
+
+  --font-sans: 'Noto Sans thai';
+  --font-mono: 'Noto Sans thai';
+}

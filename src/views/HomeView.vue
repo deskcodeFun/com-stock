@@ -1,6 +1,6 @@
 <template>
   <TheTopbar title="Com-Stock" />
-
+  <p class="font-mono">หน้าหลัก ในการแสดงผล</p>
   <router-view />
 </template>
 
