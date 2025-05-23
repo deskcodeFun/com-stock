@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex justify-between p-4">
+  <div class="flex justify-between p-4 rounded-2xl shadow-md mx-4">
     <!-- <img src="@/assets/images/rice_icon.png" alt="logo" /> -->
     <p class="font-bold text-p-blue text-shadow-md text-shadow-gray-900 text-4xl">
       {{ title }}
@@ -17,6 +17,8 @@ const props = defineProps({
     <!-- TODO: Add Menu in topbar, create menu-item, Navbar-->
     <nav class="py-4">
       <RouterLink to="/" class="text-xl px-2"> home </RouterLink>
+      <RouterLink to="/computer" class="text-xl px-2"> Computer </RouterLink>
+      <RouterLink to="/user" class="text-xl px-2"> User </RouterLink>
       <RouterLink to="/about" class="text-xl px-2"> about </RouterLink>
     </nav>
     <!-- search box -->
