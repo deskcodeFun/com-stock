@@ -1,5 +1,5 @@
 <template>
-  <TheTopbar title="ComStock" />
+  <TheTopbar title="Computer Stock" />
   <RouterView />
 </template>
 

@@ -1,25 +1,25 @@
 <script setup>
-import { defineProps } from 'vue'
+// import { defineProps } from 'vue'
 import SearchIcon from '../assets/images/SearchIcon.vue'
 import { RouterLink } from 'vue-router'
 
-const props = defineProps({
+defineProps({
   title: String,
 })
 </script>
 
 <template>
-  <div class="flex justify-between p-4 rounded-2xl shadow-md mx-4">
+  <div class="flex flex-row justify-start rounded-2xl shadow-lg m-8 p-2">
     <!-- <img src="@/assets/images/rice_icon.png" alt="logo" /> -->
-    <p class="font-bold text-p-blue text-shadow-md text-shadow-gray-900 text-4xl">
+    <p class="font-bold text-p-blue text-shadow-md text-shadow-gray-300 text-2xl">
       {{ title }}
     </p>
     <!-- TODO: Add Menu in topbar, create menu-item, Navbar-->
-    <nav class="py-4">
-      <RouterLink to="/" class="text-xl px-2"> home </RouterLink>
-      <RouterLink to="/computer" class="text-xl px-2"> Computer </RouterLink>
-      <RouterLink to="/user" class="text-xl px-2"> User </RouterLink>
-      <RouterLink to="/about" class="text-xl px-2"> about </RouterLink>
+    <nav class="text-lg mx-8 py-1 hover:pointer">
+      <RouterLink to="/" class="mx-2">home</RouterLink>
+      <RouterLink to="/computer" class="mx-2"> Computer </RouterLink>
+      <RouterLink to="/user" class="mx-2"> User </RouterLink>
+      <RouterLink to="/about" class="mx-2"> about </RouterLink>
     </nav>
     <!-- search box -->
     <div>
@@ -28,7 +28,7 @@ const props = defineProps({
           <input
             type="search"
             name="q"
-            class="border border-slate-400 py-2 mt-1 text-sm text-gray-600 rounded-xl pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
+            class="border border-slate-200 py-2 text-xs text-gray-600 rounded-xl pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
             placeholder="Search..."
             autocomplete="off"
           />

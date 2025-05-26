@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-row w-fit mx-16 mt-4">
-    <button class="mx-2 text-xl cursor-pointer hover:underline" @click="getComputers">ALL |</button>
+    <button class="mx-2 text-xl cursor-pointer hover:underline" @click="getAllComputers">
+      ALL |
+    </button>
     <button class="mx-2 text-xl cursor-pointer hover:underline" @click="getUseComputer">
       On Use|
     </button>
@@ -8,7 +10,7 @@
       On Stock
     </button>
   </div>
-  <div class="w-screen my-4 mx-24 flex flex-row flex-wrap justify-start">
+  <div class="w-fit my-4 mx-24 flex flex-row flex-wrap lg:justify-start md:justify-center">
     <div class="w-fit" v-for="computer in computers" key:computer.id>
       <div class="flex flex-row p-4 m-2 bg-white border-2 border-gray-200 rounded-2xl">
         <!-- show pictuer on left -->
@@ -17,10 +19,15 @@
         <table>
           <tbody>
             <tr>
-              <th class="text-gray-400 text-left align-baseline">Status</th>
-              <td class="px-4 text-red-800">
-                <p v-if="computer.status">{{ computer.staff[0].user_name }}</p>
-                <p v-else class="text-green-800 font-bold">Free</p>
+              <th class="text-gray-400 text-left text-xs">
+                <p v-if="computer.staff">User</p>
+                <p v-else>Status</p>
+              </th>
+              <td>
+                <p v-if="computer.staff" class="text-green-900 font-bold px-4">
+                  {{ computer.staff.fname + '.' + computer.staff.lname.substring(0, 1) }}
+                </p>
+                <p v-else class="text-red-900 font-bold px-4">Free</p>
               </td>
             </tr>
             <tr>
@@ -29,7 +36,7 @@
             </tr>
             <tr>
               <th class="text-gray-400 text-left align-baseline">CPU</th>
-              <td class="text-blue-800 px-4 w-sm text-warp">{{ computer.cpu }}</td>
+              <td class="text-blue-800 px-4 w-xs text-warp">{{ computer.cpu }}</td>
             </tr>
             <tr>
               <th class="text-gray-400 text-left align-baseline">Ram</th>
@@ -57,33 +64,29 @@ import { supabase } from '@/lib/supabaseClient.js'
 
 const computers = ref([])
 
-async function getComputers() {
-  // const { data, error } = await supabase.from('computer').select().is('status', 'false')
+async function getAllComputers() {
+  const { data, error } = await supabase.from('computer').select(`*,staff(fname,lname)`).order('id')
 
-  const { data, error } = await supabase.from('computer').select(`*, staff(user_name)`).order('id')
-  console.log(data)
+  console.log('getAllComputer is:', data)
+  console.log('error is:', error)
   computers.value = data
 }
 async function getUseComputer() {
   const { data, error } = await supabase
     .from('computer')
-    .select(`*, staff(user_name)`)
-    .is('status', 'true')
+    .select(`*,staff(fname,lname)`)
+    .gt('user_id', '0')
     .order('id')
-  console.log(data)
+  console.log('getUsecomputer', data)
   computers.value = data
 }
 async function getFreeComputer() {
-  const { data, error } = await supabase
-    .from('computer')
-    .select(`*, staff(user_name)`)
-    .is('status', 'false')
-    .order('id')
-  console.log(data)
+  const { data, error } = await supabase.from('computer').select().is('user_id', null).order('id')
+  console.log('getFreeComputer', data)
   computers.value = data
 }
 
 onMounted(() => {
-  getComputers()
+  getAllComputers()
 })
 </script>
