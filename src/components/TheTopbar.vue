@@ -15,11 +15,19 @@ defineProps({
       {{ title }}
     </p>
     <!-- TODO: Add Menu in topbar, create menu-item, Navbar-->
-    <nav class="text-lg mx-8 py-1 hover:pointer">
-      <RouterLink to="/" class="mx-2">home</RouterLink>
-      <RouterLink to="/computer" class="mx-2"> Computer </RouterLink>
-      <RouterLink to="/user" class="mx-2"> User </RouterLink>
-      <RouterLink to="/about" class="mx-2"> about </RouterLink>
+    <nav class="text-lg px-8 py-1 hover:pointer">
+      <RouterLink to="/" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl"
+        >Home</RouterLink
+      >
+      <RouterLink to="/computer" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+        Computer
+      </RouterLink>
+      <RouterLink to="/user" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+        User
+      </RouterLink>
+      <RouterLink to="/about" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+        about
+      </RouterLink>
     </nav>
     <!-- search box -->
     <div>

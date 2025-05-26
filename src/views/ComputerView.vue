@@ -1,5 +1,8 @@
 <template>
   <div class="flex flex-row w-fit mx-16 mt-4">
+    <!-- TODO: change submenu to filter by bu use dropdown menu 
+               when select item show use and free computer
+    -->
     <button class="mx-2 text-xl cursor-pointer hover:underline" @click="getAllComputers">
       ALL |
     </button>
