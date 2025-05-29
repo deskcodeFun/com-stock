@@ -10,11 +10,10 @@ defineProps({
 
 <template>
   <div class="flex flex-row justify-start rounded-2xl shadow-lg m-8 p-2">
-    <!-- <img src="@/assets/images/rice_icon.png" alt="logo" /> -->
     <p class="font-bold text-p-blue text-shadow-md text-shadow-gray-300 text-2xl">
       {{ title }}
     </p>
-    <!-- TODO: Add Menu in topbar, create menu-item, Navbar-->
+    <!-- Menu in topbar, create menu-item, Navbar-->
     <nav class="text-lg px-8 py-1 hover:pointer">
       <RouterLink to="/" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl"
         >Home</RouterLink
@@ -30,7 +29,7 @@ defineProps({
       </RouterLink>
     </nav>
     <!-- search box -->
-    <div>
+    <!-- <div>
       <form method="GET">
         <div class="relative text-gray-600 focus-within:text-gray-400">
           <input
@@ -46,6 +45,6 @@ defineProps({
           </span>
         </div>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
