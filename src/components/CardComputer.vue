@@ -116,7 +116,7 @@ import { supabase } from '@/lib/supabaseClient.js'
 const computers = ref([])
 const totalComputer = ref()
 const onUseComputer = ref()
-const officeName = ref()
+// const officeName = ref()
 
 async function countComputer() {
   const { data, error } = await supabase.from('computer').select('*', { count: 'exact' })
@@ -130,15 +130,15 @@ async function countUseComputer() {
     .select('user_id', { count: 'exact' })
     .not('user_id', 'is', null)
   onUseComputer.value = data.length
-  console.log('onUseComputer data :', data)
-  console.log('onUseComputer.value :', onUseComputer)
+  // console.log('onUseComputer data :', data)
+  // console.log('onUseComputer.value :', onUseComputer)
 }
 
 async function getComputers() {
   const { data, error } = await supabase.from('computer').select('*,staff(*)')
-  console.log('data is:', data)
+  //console.log('data is:', data)
   // console.log('error is:', error)
-  console.log('all computer', data)
+  // console.log('all computer', data)
   computers.value = data
 }
 async function getOfficeComputers(bu) {
@@ -148,7 +148,7 @@ async function getOfficeComputers(bu) {
     .from('computer')
     .select('*,staff!inner(*)')
     .eq('staff.office', officeName)
-  console.log('NPM data:', data)
+  // console.log('NPM data:', data)
   computers.value = data
 }
 onMounted(() => {
