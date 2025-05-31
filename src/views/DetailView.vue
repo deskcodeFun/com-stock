@@ -83,7 +83,8 @@
         </table>
       </div>
     </div>
-    <div>
+    <!-- Check user_id is not null -->
+    <div v-if="computer[0] && computer[0].staff">
       <div class="text-xl mb-2 ml-8 text-green-900">User infomation</div>
       <div class="flex flex-row w-fit p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
         <img class="pr-8 w-fit h-fit mr-16" src="\src\assets\images\hp1.png" alt="computer image" />
@@ -120,6 +121,7 @@
         </table>
       </div>
     </div>
+    <div v-else></div>
   </section>
   <div v-else>Loading......</div>
 </template>
@@ -141,6 +143,7 @@ const isLoading = ref(true)
 onMounted(async () => {
   try {
     const { data } = await supabase.from('computer').select('*,staff(*)').eq('id', paramId)
+
     computer.value = data
   } catch (error) {
     console.error('Fetch detail error:', error)
