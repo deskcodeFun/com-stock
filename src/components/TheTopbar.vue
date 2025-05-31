@@ -21,8 +21,8 @@ defineProps({
       <RouterLink to="/computer" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
         Computer
       </RouterLink>
-      <RouterLink to="/user" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
-        User
+      <RouterLink to="/form" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+        Form
       </RouterLink>
       <RouterLink to="/about" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
         about

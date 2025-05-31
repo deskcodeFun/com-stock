@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import ComputerView from '../views/ComputerView.vue'
-import UserView from '../views/UserView.vue'
+import FormView from '../views/FormView.vue'
 import DetailView from '../views/DetailView.vue'
 
 const router = createRouter({
@@ -30,20 +30,20 @@ const router = createRouter({
       component: ComputerView,
     },
     {
+      path: '/form',
+      name: 'form',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: FormView,
+    },
+    {
       path: '/computer/:id',
       name: 'detail',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: DetailView,
-    },
-    {
-      path: '/user',
-      name: 'user',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: UserView,
     },
   ],
 })
