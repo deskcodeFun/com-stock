@@ -1,3 +1,3 @@
 <template>
-  <P>This is form to update edit computer</P>
+  <P>This is form to update edit</P>
 </template>
