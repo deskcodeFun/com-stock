@@ -1,7 +1,9 @@
 <template>
-  <CardComputer />
+  <TotalCard />
+  <OfficeMenu />
 </template>
 
 <script setup>
-import CardComputer from '@/components/CardComputer.vue'
+import OfficeMenu from '@/components/OfficeMenu.vue'
+import TotalCard from '@/components/TotalCard.vue'
 </script>

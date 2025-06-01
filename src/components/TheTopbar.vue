@@ -1,6 +1,5 @@
 <script setup>
-// import { defineProps } from 'vue'
-import SearchIcon from '../assets/images/SearchIcon.vue'
+// import SearchIcon from '../assets/images/SearchIcon.vue'
 import { RouterLink } from 'vue-router'
 
 defineProps({
@@ -9,8 +8,8 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex flex-row justify-start rounded-2xl shadow-lg m-8 p-2">
-    <p class="font-bold text-p-blue text-shadow-md text-shadow-gray-300 text-2xl">
+  <div class="flex flex-row rounded-2xl shadow-md md:p-6">
+    <p class="font-bold text-p-blue text-shadow-md text-2xl">
       {{ title }}
     </p>
     <!-- Menu in topbar, create menu-item, Navbar-->

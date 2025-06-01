@@ -1,73 +1,9 @@
-<!-- show all computer  
-     with user name, 
-     if use change label staus to used by 'username.lname'
-     else label is status and show 'Free'
-     sql: supabase.from('computer').select(`*, staff(*)`)
--->
 <template>
-  <!-- Sub menu filter by office -->
-  <div class="flex flex-row w-fit mx-16 mt-4 mb-4">
-    <button
-      class="px-4 py-2 rounded-lg text-md cursor-pointer hover:bg-gray-200 focus:bg-sky-200"
-      @click="getComputers"
-    >
-      ALL
-    </button>
-    <button
-      class="px-4 py-2 rounded-lg text-md cursor-pointer hover:bg-gray-200 focus:bg-sky-200"
-      @click="getOfficeComputers('Nexus Property Marketing')"
-    >
-      NPM
-    </button>
-    <button
-      class="px-4 py-2 rounded-lg text-md cursor-pointer hover:bg-gray-200 focus:bg-sky-200"
-      @click="getOfficeComputers('Nexus Property Consultants')"
-    >
-      NPC
-    </button>
-    <button
-      class="px-4 py-2 rounded-lg text-md cursor-pointer hover:bg-gray-200 focus:bg-sky-200"
-      @click="getOfficeComputers('Nexus Retail Advisory')"
-    >
-      NRT
-    </button>
-    <button
-      class="px-4 py-2 rounded-lg text-md cursor-pointer hover:bg-gray-200 focus:bg-sky-200"
-      @click="getOfficeComputers('Nexus Real Estate Advisory')"
-    >
-      NRA
-    </button>
-    <button
-      class="px-4 py-2 rounded-lg text-md cursor-pointer hover:bg-gray-200 focus:bg-sky-200"
-      @click="getOfficeComputers('Nexus Property Agency')"
-    >
-      NPA
-    </button>
-  </div>
-  <div class="w-auto lg:flex-row">
-    <div class="mx-8 bg-sky-50 px-4 py-4 border-2 border-gray-200 rounded-2">
-      <!-- Totol computer card -->
-      <div class="flex flex-row text-2xl pb-4 px-4">
-        <p>Total Computer :</p>
-        <p class="pl-8">{{ totalComputer }}</p>
-      </div>
-      <div class="flex flex-row text-xl px-4">
-        <p>on use :</p>
-        <p class="pl-8">{{ onUseComputer }}</p>
-      </div>
-      <div class="flex flex-row text-xl px-4">
-        <p>on stock :</p>
-        <p class="pl-4">{{ totalComputer - onUseComputer }}</p>
-      </div>
-    </div>
-  </div>
-
   <!--  deltail -->
-  <div class="w-fit my-4 mx-2 flex flex-row flex-wrap justify-center">
+  <div class="w-fit my-4 flex flex-row flex-wrap justify-start">
     <div class="w-fit" v-for="computer in computers" key:computer.id>
-      <div class="bg-white border-2 shadow-lg border-gray-200 rounded-2xl w-sm m-4 p-8">
+      <div class="bg-white border-2 shadow-lg border-gray-200 rounded-2xl w-sm m-4 p-4">
         <img class="w-4xs mx-auto mb-4" src="\src\assets\images\hp1.png" alt="computer image" />
-
         <table>
           <tbody>
             <tr>
@@ -104,6 +40,11 @@
             </tr>
           </tbody>
         </table>
+        <RouterLink
+          :to="'/computer/' + computer.id"
+          class="flex flex-row justify-end mt-2 text-green-700"
+          >More Detail...</RouterLink
+        >
       </div>
     </div>
   </div>
