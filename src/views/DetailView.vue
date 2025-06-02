@@ -161,7 +161,6 @@ const isLoading = ref(true)
 onMounted(async () => {
   try {
     const { data } = await supabase.from('computer').select('*,staff(*)').eq('id', paramId)
-
     computer.value = data
   } catch (error) {
     console.error('Fetch detail error:', error)

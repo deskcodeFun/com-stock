@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
-import ComputerView from '../views/ComputerView.vue'
 import FormView from '../views/FormView.vue'
 import DetailView from '../views/DetailView.vue'
 
@@ -21,14 +20,7 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: AboutView,
     },
-    {
-      path: '/computer',
-      name: 'computer',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: ComputerView,
-    },
+
     {
       path: '/form',
       name: 'form',
