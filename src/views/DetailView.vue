@@ -168,20 +168,4 @@ onMounted(async () => {
     isLoading.value = false
   }
 })
-// async function getComputer() {
-//   console.log('id is :', paramId)
-//   const { data, error } = await supabase.from('computer').select('*,staff(*)').eq('id', paramId)
-//   // const { data, error } = await supabase
-//   //   .from('computer')
-//   //   .select('*, staff!inner(*)')
-//   //   .eq('id', paramId)
-//   computer.value = data
-//   console.log('computers is:', computer.value)
-//   console.log('data is:', data)
-//   console.log('error is:', error)
-// }
-
-// onMounted(() => {
-//   getComputer()
-// })
 </script>
