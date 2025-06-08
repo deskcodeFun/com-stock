@@ -1,12 +1,17 @@
 <template>
   <div class="w-fit my-4 flex flex-row flex-wrap justify-start">
-    <!-- <div class="w-fit" v-for="computer in state.computers" key:computer.id> -->
     <div class="bg-white border-2 shadow-lg border-gray-200 rounded-2xl m-4 p-4">
-      <img
-        class="h-150px w-auto mx-auto mb-4"
-        src="\src\assets\images\lenovo.png"
-        alt="computer image"
-      />
+      <!-- src="\src\assets\images\lenovo.png" -->
+      <div v-if="computer.image">
+        <img class="h-50px mx-auto w-auto mb-4 px-4" :src="computer.image" alt="computer image" />
+      </div>
+      <div v-else>
+        <img
+          class="h-50px mx-auto w-auto mb-4 px-4"
+          src="\src\assets\images\lenovo.png"
+          alt="computer image"
+        />
+      </div>
       <table>
         <tbody>
           <tr>

@@ -1,12 +1,21 @@
 <template>
   <BackButton />
-  <section v-if="!isLoading" class="flex flex-row justify-between mx-8">
+  <div v-if="!isLoading" class="w-fit flex flex-row flex-wrap justify-between">
     <div>
       <div class="text-xl mb-2 ml-8 text-blue-900">Computer Spec</div>
-      <div class="flex flex-row w-fit p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
-        <img class="pr-8 w-fit h-fit mr-4" src="\src\assets\images\hp1.png" alt="computer image" />
+      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
+        <div v-if="computer[0].image">
+          <img class="h-50px mx-auto w-auto mb-4" :src="computer[0].image" alt="computer image" />
+        </div>
+        <div v-else>
+          <img
+            class="mx-auto w-auto mb-4"
+            src="\src\assets\images\lenovo.png"
+            alt="computer image"
+          />
+        </div>
         <table>
-          <tbody>
+          <tbody class="align-baseline">
             <tr>
               <th class="text-gray-400 text-left text-xs">
                 <p>Status</p>
@@ -86,35 +95,39 @@
     <!-- Check user_id is not null -->
     <div v-if="computer[0] && computer[0].staff">
       <div class="text-xl mb-2 ml-8 text-green-900">User infomation</div>
-      <div class="flex flex-row w-fit p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
-        <img class="pr-8 w-fit h-fit mr-16" src="\src\assets\images\hp1.png" alt="computer image" />
+      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
+        <img
+          class="h-50px mx-auto w-auto mb-4 px-4"
+          src="\src\assets\images\avatar-128.png"
+          alt="profile picture"
+        />
         <table>
-          <tbody>
+          <tbody class="align-baseline">
             <tr>
-              <th class="text-gray-400 text-left">User Name</th>
+              <th class="text-gray-400 text-left text-xs">User Name</th>
               <td class="text-blue-800 px-4">
                 {{ computer[0].staff.fname + ' ' + computer[0].staff.lname }}
               </td>
             </tr>
             <tr>
-              <th class="text-gray-400 text-left">Email</th>
+              <th class="text-gray-400 text-left text-xs">Email</th>
               <td class="text-blue-800 px-4">{{ computer[0].staff.email }}</td>
             </tr>
             <tr>
-              <th class="text-gray-400 text-left">Office</th>
+              <th class="text-gray-400 text-left text-xs">Office</th>
               <td class="text-blue-800 px-4">{{ computer[0].staff.office }}</td>
             </tr>
 
             <tr>
-              <th class="text-gray-400 text-left">Department</th>
+              <th class="text-gray-400 text-left text-xs">Department</th>
               <td class="text-blue-800 px-4">{{ computer[0].staff.department }}</td>
             </tr>
             <tr>
-              <th class="text-gray-400 text-left">Start date</th>
-              <td class="text-blue-800 px-4 w-xs text-warp">{{ computer[0].staff.start_date }}</td>
+              <th class="text-gray-400 text-left text-xs">Start date</th>
+              <td class="text-blue-800 px-4">{{ computer[0].staff.start_date }}</td>
             </tr>
             <tr>
-              <th class="text-gray-400 text-left">Return date</th>
+              <th class="text-gray-400 text-left text-xs">Return date</th>
               <td class="text-blue-800 px-4">{{ computer[0].staff.return_date }}</td>
             </tr>
           </tbody>
@@ -122,12 +135,12 @@
       </div>
     </div>
     <div v-else></div>
-  </section>
+  </div>
   <div v-else>Loading......</div>
 
-  <section class="ml-16 mt-4 text-xl">
+  <section class="ml-8 my-8 text-xl">
     Computer Information
-    <table class="w-1/2">
+    <table class="w-1/2 mt-4">
       <tbody>
         <tr>
           <th class="text-left p-1 border-2 border-gray-200">Date</th>
