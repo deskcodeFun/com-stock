@@ -6,13 +6,6 @@
     <!-- Form: Add new computer we don't need validation data cause it's all text -->
     <div class="w-1/2 pr-24 pl-4">
       <p>Computer Specification</p>
-      <!-- <form @submit.prevent="addSubmit">
-        <TextInput
-          v-model.lazy.trim="assetModel"
-          label="Asset"
-          placeholder="Asset tag from accounting"
-        ></TextInput>
-      </form> -->
       <form @submit.prevent="addSubmit">
         <TextInput
           v-model.lazy.trim="assetComponent.modelValue"
@@ -89,16 +82,15 @@
           :label="bluetoothComponent.label"
           :placeholder="bluetoothComponent.placeholder"
         ></TextInput>
+        <div>
+          <button
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mt-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Add Computer
+          </button>
+        </div>
       </form>
-
-      <div>
-        <button
-          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
-          @click="addSubmit"
-        >
-          Add Computer
-        </button>
-      </div>
     </div>
     <!-- Add image form: select picture and resize to resolution H:150px -->
     <div>
@@ -137,7 +129,7 @@ const assetComponent = reactive({
   type: 'text',
   placeholder: 'asset tag from accounting',
   label: 'Asset',
-  errorMessages: null,
+  errorMessages: 'Asset tag at least 5 charecter',
   pattern: '',
   minLength: 5,
   maxLength: 50,
