@@ -29,8 +29,6 @@ const onUseComputer = ref()
 async function countComputer() {
   const { data, error } = await supabase.from('computer').select('*', { count: 'exact' })
   totalComputer.value = data.length
-  // console.log('countComputer data :', data)
-  // console.log('totalcomputer.value :', totalComputer)
 }
 async function countUseComputer() {
   const { data, error } = await supabase
@@ -38,8 +36,6 @@ async function countUseComputer() {
     .select('user_id', { count: 'exact' })
     .not('user_id', 'is', null)
   onUseComputer.value = data.length
-  // console.log('onUseComputer data :', data)
-  // console.log('onUseComputer.value :', onUseComputer)
 }
 onMounted(() => {
   countComputer(), countUseComputer()

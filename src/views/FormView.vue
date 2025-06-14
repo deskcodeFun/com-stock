@@ -103,27 +103,33 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
+
 import TextInput from '@/components/TextInput.vue'
 import { supabase } from '@/lib/supabaseClient'
+import { useToast } from 'vue-toastification'
+import router from '@/router'
+import ComputerCard from '@/components/ComputerCard.vue'
 
-const form = reactive({
-  asset_tag: '',
-  serial_tag: '',
-  brand: '',
-  model: '',
-  cpu: '',
-  ai: '',
-  graphic: '',
-  screen_size: '',
-  ram: '',
-  max_ram: '',
-  harddisk: '',
-  harddisk_slot: '',
-  lan_port: '',
-  wireless: '',
-  bluetooth: '',
-})
+// const form = reactive({
+//   asset_tag: '',
+//   serial_tag: '',
+//   brand: '',
+//   model: '',
+//   cpu: '',
+//   ai: '',
+//   graphic: '',
+//   screen_size: '',
+//   ram: '',
+//   max_ram: '',
+//   harddisk: '',
+//   harddisk_slot: '',
+//   lan_port: '',
+//   wireless: '',
+//   bluetooth: '',
+// })
+const toast = useToast()
+const lastComputer = ref()
 const assetComponent = reactive({
   modelValue: '',
   type: 'text',
@@ -293,7 +299,19 @@ const addSubmit = async () => {
     wireless: wirelessSlotComponent.modelValue,
     bluetooth: bluetoothComponent.modelValue,
   }
-  const { error } = await supabase.from('computer').insert(newComputer)
-  console.log('erroris :', error)
+  try {
+    const response = await supabase.from('computer').insert(newComputer)
+    toast.success('New computer added Successfully')
+    const { data } = await supabase
+      .from('computer')
+      .select()
+      .order('id', { ascending: false })
+      .limit(1)
+    router.push(`/computer/${data[0].id}`)
+  } catch (error) {
+    console.log('error is :', error)
+  }
 }
 </script>
+<!-- lastComputer.value =data -->
+<!-- router.push(`/computer/${data.id}`) -->

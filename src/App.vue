@@ -8,5 +8,9 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import TheTopbar from './components/TheTopbar.vue'
-//import CardComputer from './components/CardComputer.vue'
+
+import { provideToast } from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
+
+provideToast({ timeout: 3000 })
 </script>

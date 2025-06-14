@@ -1,5 +1,6 @@
-@import 'tailwindcss';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --color-p-blue: #001253;
   --color-s-blue: #fafbfe;
