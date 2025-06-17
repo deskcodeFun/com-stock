@@ -7,13 +7,20 @@
       :placeholder="props.placeholder"
       :value="props.modelValue"
       @input="handleInput($event.target.value)"
+      @blur="validateData"
     />
+    <span class="text-sm text-red-800" v-if="isValidate">{{
+      props.errorMessage || localError
+    }}</span>
   </div>
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, ref } from 'vue'
 
+const localError = ref('')
+// check validate at loading page
+const isValidate = ref(false)
 const props = defineProps({
   modelValue: {
     type: String,
@@ -28,7 +35,34 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  pattern: {
+    type: String,
+    default: null,
+  },
+  minLength: {
+    type: Number,
+    default: 0,
+  },
+  maxLength: {
+    type: Number,
+    default: 0,
+  },
+  errorMessage: {
+    type: String,
+    default: '',
+  },
 })
+
+const validateData = (event) => {
+  const isPatternValid = props.pattern ? !!event.target.value.match(props.pattern) : true
+  const isLengthValid =
+    event.target.value.length >= props.minLength && event.target.value.length <= props.maxLength
+
+  if (!isPatternValid || !isLengthValid) {
+    isValidate.value = true
+    localError.value = 'Please enter a valid value'
+  }
+}
 const emit = defineEmits(['update:modelValue'])
 const handleInput = (newValue) => {
   emit('update:modelValue', newValue)
