@@ -216,7 +216,7 @@ const brandComponent = reactive({
   placeholder: 'computer brand name',
   label: 'Brand',
   errorMessage: '',
-  pattern: '',
+  pattern: '[A-Za-z]',
   minLength: 2,
   maxLength: 50,
 })
@@ -247,8 +247,8 @@ const aiComponent = reactive({
   label: 'AI',
   errorMessage: '',
   pattern: '',
-  minLength: 5,
-  maxLength: 50,
+  minLength: null,
+  maxLength: null,
 })
 const graphicComponent = reactive({
   modelValue: '',
@@ -267,7 +267,7 @@ const screenComponent = reactive({
   label: 'Display',
   errorMessage: '',
   pattern: '',
-  minLength: 5,
+  minLength: 2,
   maxLength: 50,
 })
 const ramComponent = reactive({
@@ -275,10 +275,10 @@ const ramComponent = reactive({
   type: 'text',
   placeholder: 'capacity ram',
   label: 'Ram',
-  errorMessage: '',
+  errorMessage: 'Mininum ram is 4 Gb',
   pattern: '',
   minLength: 1,
-  maxLength: 50,
+  maxLength: 10,
 })
 const maxRamComponent = reactive({
   modelValue: '',
@@ -287,15 +287,15 @@ const maxRamComponent = reactive({
   label: 'Max Ram',
   errorMessage: '',
   pattern: '',
-  minLength: 1,
-  maxLength: 50,
+  minLength: null,
+  maxLength: null,
 })
 const harddiskComponent = reactive({
   modelValue: '',
   type: 'text',
   placeholder: 'capacity of hard disk',
   label: 'Hard disk',
-  errorMessage: '',
+  errorMessage: 'Hard disk capacity has been value',
   pattern: '',
   minLength: 1,
   maxLength: 50,
@@ -307,8 +307,8 @@ const harddiskSlotComponent = reactive({
   label: 'HD slot',
   errorMessage: '',
   pattern: '',
-  minLength: 1,
-  maxLength: 50,
+  minLength: null,
+  maxLength: null,
 })
 const lanPortComponent = reactive({
   modelValue: '',
@@ -317,8 +317,8 @@ const lanPortComponent = reactive({
   label: 'LAN',
   errorMessage: '',
   pattern: '',
-  minLength: 1,
-  maxLength: 50,
+  minLength: null,
+  maxLength: null,
 })
 const wirelessSlotComponent = reactive({
   modelValue: '',
@@ -327,8 +327,8 @@ const wirelessSlotComponent = reactive({
   label: 'Wireless',
   errorMessage: '',
   pattern: '',
-  minLength: 1,
-  maxLength: 50,
+  minLength: null,
+  maxLength: null,
 })
 const bluetoothComponent = reactive({
   modelValue: '',
@@ -337,8 +337,8 @@ const bluetoothComponent = reactive({
   label: 'Bluetooth',
   errorMessage: '',
   pattern: '',
-  minLength: 1,
-  maxLength: 50,
+  minLength: null,
+  maxLength: null,
 })
 
 const addSubmit = async () => {

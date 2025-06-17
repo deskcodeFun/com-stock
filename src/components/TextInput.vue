@@ -9,9 +9,10 @@
       @input="handleInput($event.target.value)"
       @blur="validateData"
     />
-    <span class="text-sm text-red-800" v-if="isValidate">{{
-      props.errorMessage || localError
-    }}</span>
+    <span class="text-sm text-red-800" v-if="isValidate"
+      >{{ props.errorMessage || localError }} {{ isValidate }}</span
+    >
+    <span v-else></span>
   </div>
 </template>
 
@@ -54,6 +55,7 @@ const props = defineProps({
 })
 
 const validateData = (event) => {
+  isValidate.value = false
   const isPatternValid = props.pattern ? !!event.target.value.match(props.pattern) : true
   const isLengthValid =
     event.target.value.length >= props.minLength && event.target.value.length <= props.maxLength
