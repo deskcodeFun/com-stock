@@ -169,7 +169,6 @@ import TextInput from '@/components/TextInput.vue'
 import { supabase } from '@/lib/supabaseClient'
 import { useToast } from 'vue-toastification'
 import router from '@/router'
-import ComputerCard from '@/components/ComputerCard.vue'
 
 // const form = reactive({
 //   asset_tag: '',
