@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="flex flex-row rounded-2xl shadow-md md:p-6">
-    <p class="font-bold text-p-blue text-shadow-md text-2xl">
+    <p class="font-bold text-blue-900 text-shadow-lg text-2xl">
       {{ title }}
     </p>
     <!-- Menu in topbar, create menu-item, Navbar-->
@@ -31,7 +31,7 @@ defineProps({
           <input
             type="search"
             name="q"
-            class="border border-slate-200 py-2 text-xs text-gray-600 rounded-xl pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
+            class="border border-slate-200 py-2 text-xs text-gray-600 rounded-xl pl-10 focus:outline-hidden focus:bg-white focus:text-gray-900"
             placeholder="Search..."
             autocomplete="off"
           />

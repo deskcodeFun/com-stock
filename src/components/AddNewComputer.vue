@@ -142,7 +142,7 @@
         ></TextInput>
         <div>
           <button
-            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mt-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mt-4 rounded-full w-full focus:outline-hidden focus:shadow-outline"
             type="submit"
           >
             Add Computer

@@ -3,7 +3,7 @@
   <div v-if="!isLoading" class="w-fit flex flex-row flex-wrap justify-between">
     <div>
       <div class="text-xl mb-2 ml-8 text-blue-900">Computer Spec</div>
-      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
+      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border border-blue-900 rounded-2xl">
         <div v-if="computer[0].image">
           <img class="h-50px mx-auto w-auto mb-4" :src="computer[0].image" alt="computer image" />
         </div>
@@ -95,7 +95,7 @@
     <!-- Check user_id is not null -->
     <div v-if="computer[0] && computer[0].staff">
       <div class="text-xl mb-2 ml-8 text-green-900">User infomation</div>
-      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border-1 border-blue-900 rounded-2xl">
+      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border border-blue-900 rounded-2xl">
         <img
           class="h-50px mx-auto w-auto mb-4 px-4"
           src="\src\assets\images\avatar-128.png"

@@ -2,7 +2,7 @@
   <div class="pb-4">
     <p class="mr-4 mt-2 text-gray-600">{{ props.label }}</p>
     <input
-      class="w-full border-b-1 nowrap rounded p-2 bg-blue-50 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
+      class="w-full border-b nowrap rounded-sm p-2 bg-blue-50 text-blue-900 leading-tight focus:outline-hidden focus:shadow-outline"
       :type="props.type"
       :placeholder="props.placeholder"
       :value="props.modelValue"
