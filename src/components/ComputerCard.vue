@@ -1,7 +1,9 @@
 <template>
   <div class="w-fit my-4 flex flex-row flex-wrap justify-start">
-    <div class="bg-white border-2 shadow-lg border-gray-200 rounded-2xl m-4 p-4">
-      <!-- src="\src\assets\images\lenovo.png" -->
+    <div
+      class="bg-white border-1 border-gray-200 rounded-2xl m-4 p-4 transition ease-in-out hover:shadow-2xl hover:transition-y-1 hover:scale-101"
+      @click="router.push(`/computer/${computer.id}`)"
+    >
       <div v-if="computer.image">
         <img class="h-50px mx-auto w-auto mb-4 px-4" :src="computer.image" alt="computer image" />
       </div>
@@ -48,16 +50,14 @@
           </tr>
         </tbody>
       </table>
-      <RouterLink
-        :to="'/computer/' + computer.id"
-        class="mt-2 flex flex-row justify-end text-green-700"
-        >More Detail...</RouterLink
-      >
     </div>
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const props = defineProps({
   computer: Object,
 })
