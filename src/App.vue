@@ -7,7 +7,7 @@
 
 <script setup>
 import { RouterView } from 'vue-router'
-import TheTopbar from './components/TheTopbar.vue'
+import TheTopbar from '@/components/TheTopbar.vue'
 
 import { provideToast } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
