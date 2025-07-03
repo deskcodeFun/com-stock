@@ -1,14 +1,4 @@
 <template>
-  <!-- Sub Menu show data by office -->
-  <!-- <div class="flex flex-row w-fit mt-4 mb-4">
-    <p class="px-4 py-1 rounded-lg text-xl text-gray-400">Select by :</p>
-    <BaseButtonFilter @click="store.getOfficeComputers(0)" label="All" />
-    <BaseButtonFilter @click="store.getOfficeComputers(1)" label="NPA" />
-    <BaseButtonFilter @click="store.getOfficeComputers(2)" label="NPC" />
-    <BaseButtonFilter @click="store.getOfficeComputers(3)" label="NPM" />
-    <BaseButtonFilter @click="store.getOfficeComputers(4)" label="NRA" />
-    <BaseButtonFilter @click="store.getOfficeComputers(5)" label="NRT" />
-  </div> -->
   <div class="flex flex-row mt-4">
     <p class="text-xl text-gray-500 pr-4">Filter by :</p>
     <select
@@ -40,8 +30,6 @@ import { onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useComputerCountStore } from '@/stores/computerCount'
 import ComputerCard from '@/components/ComputerCard.vue'
-// import BaseButtonFilter from './BaseButtonFilter.vue'
-
 const store = useComputerCountStore()
 const router = useRouter()
 const route = useRoute()
