@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row mt-4">
-    <p class="text-xl text-gray-500 pr-4">Filter by :</p>
+    <p class="text-sm md:text-lg text-gray-500 px-4">Filter by :</p>
     <select
       class="px-8 py-1 w-fit border-1 border-blue-300"
       @change="handleChange"
