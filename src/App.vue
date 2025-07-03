@@ -1,6 +1,6 @@
 <template>
   <main class="m-4 md:mx-16 my-2">
-    <TheTopbar title="Computer Stock" />
+    <TheTopbar />
     <RouterView />
   </main>
 </template>

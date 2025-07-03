@@ -1,17 +1,10 @@
 <script setup>
-// import SearchIcon from '../assets/images/SearchIcon.vue'
 import { RouterLink } from 'vue-router'
-
-defineProps({
-  title: String,
-})
 </script>
 
 <template>
   <div class="flex flex-row rounded-2xl shadow-md md:p-6">
-    <p class="font-bold text-blue-900 text-shadow-lg text-2xl">
-      {{ title }}
-    </p>
+    <p class="font-bold text-blue-900 text-shadow-lg text-2xl">Computer Stock</p>
     <!-- Menu in topbar, create menu-item, Navbar-->
     <nav class="text-lg px-8 py-1 hover:pointer">
       <RouterLink to="/" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl"
