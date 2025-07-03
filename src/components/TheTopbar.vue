@@ -10,8 +10,8 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl"
         >Home</RouterLink
       >
-      <RouterLink to="/form" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
-        Form
+      <RouterLink to="/services" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+        IT-Services
       </RouterLink>
       <RouterLink to="/about" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
         about
