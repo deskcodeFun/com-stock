@@ -1,5 +1,5 @@
 <template>
-  <BackButton />
+  <BaseButtonBack />
   <div v-if="!isLoading" class="w-fit flex flex-row flex-wrap justify-between">
     <div>
       <div class="text-xl mb-2 ml-8 text-blue-900">Computer Spec</div>
@@ -160,7 +160,7 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
 import { supabase } from '@/lib/supabaseClient.js'
-import BackButton from '@/components/BackButton.vue'
+import BaseButtonBack from '@/components/BaseButtonBack.vue'
 import { ref, onMounted } from 'vue'
 
 const route = useRoute()
