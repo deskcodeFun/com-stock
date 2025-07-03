@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 
-import DetailView from '../views/DetailView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import ItServicesView from '@/views/ItServicesView.vue'
+import ComputerView from '@/views/ComputerView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,11 +33,11 @@ const router = createRouter({
     },
     {
       path: '/computer/:id',
-      name: 'detail',
+      name: 'computer-view',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: DetailView,
+      component: ComputerView,
     },
     {
       path: '/:catchAll(.*)',
