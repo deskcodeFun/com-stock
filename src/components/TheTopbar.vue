@@ -7,33 +7,15 @@ import { RouterLink } from 'vue-router'
     <p class="font-bold text-blue-900 text-shadow-lg text-2xl">Computer Stock</p>
     <!-- Menu in topbar, create menu-item, Navbar-->
     <nav class="text-lg px-8 py-1 hover:pointer">
-      <RouterLink to="/" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl"
+      <RouterLink to="/" class="px-4" active-class="bg-sky-200 px-4 py-2 rounded-xl"
         >Home</RouterLink
       >
-      <RouterLink to="/services" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+      <RouterLink to="/services" class="px-4" active-class="bg-sky-200 px-4 py-2 rounded-xl">
         IT-Services
       </RouterLink>
-      <RouterLink to="/about" class="px-4" active-class="bg-gray-200 px-4 py-2 rounded-xl">
+      <RouterLink to="/about" class="px-4" active-class="bg-sky-200 px-4 py-2 rounded-xl">
         about
       </RouterLink>
     </nav>
-    <!-- search box -->
-    <!-- <div>
-      <form method="GET">
-        <div class="relative text-gray-600 focus-within:text-gray-400">
-          <input
-            type="search"
-            name="q"
-            class="border border-slate-200 py-2 text-xs text-gray-600 rounded-xl pl-10 focus:outline-hidden focus:bg-white focus:text-gray-900"
-            placeholder="Search..."
-            autocomplete="off"
-          />
-          <span class="absolute mt-1 inset-y-1 flex items-center pl-1">
-            <search-icon></search-icon>
-            <button type="submit" class="focus:pointer focus:shadow-outline"></button>
-          </span>
-        </div>
-      </form>
-    </div> -->
   </div>
 </template>

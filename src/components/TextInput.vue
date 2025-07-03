@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 
 const localError = ref('')
 // check validate at loading page
