@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="flex flex-row rounded-2xl shadow-md md:p-6">
+  <div class="flex flex-row rounded-2xl shadow-md md:p-2">
     <p class="font-bold text-blue-900 text-shadow-lg text-2xl">Computer Stock</p>
     <!-- Menu in topbar, create menu-item, Navbar-->
     <nav class="text-lg px-8 py-1 hover:pointer">

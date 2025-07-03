@@ -1,43 +1,25 @@
 <template>
   <!-- Total card -->
-  <div class="mt-4 w-1/2 bg-sky-50 py-4 border-2 border-gray-200 rounded-2xl">
-    <!-- Totol computer card -->
-    <div class="flex flex-row text-2xl pb-4 px-4">
-      <p>Total Computer :</p>
-      <p class="pl-8">{{ totalComputer }}</p>
+  <div class="flex flex-row w-fit">
+    <div class="w-3xs flex flex-row text-xl p-4 m-4 rounded-2xl bg-sky-50">
+      <p>Total Computer{{ ' : ' + store.totalComputer }}</p>
     </div>
     <!-- On use -->
-    <div class="flex flex-row text-xl px-4">
-      <p>on use :</p>
-      <p class="pl-8">{{ onUseComputer }}</p>
+    <div class="w-3xs flex flex-row text-xl p-4 m-4 rounded-2xl bg-sky-50">
+      <p>On Use{{ ' : ' + store.onUseComputer }}</p>
     </div>
     <!-- on stock -->
-    <div class="flex flex-row text-xl px-4">
-      <p>on stock :</p>
-      <p class="pl-4">{{ totalComputer - onUseComputer }}</p>
+    <div class="w-3xs flex flex-row text-xl p-4 m-4 rounded-2xl bg-sky-50">
+      <p>On Stock {{ ' : ' + onStock }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { supabase } from '@/lib/supabaseClient.js'
-
-const totalComputer = ref()
-const onUseComputer = ref()
-
-async function countComputer() {
-  const { data, error } = await supabase.from('computer').select('*', { count: 'exact' })
-  totalComputer.value = data.length
-}
-async function countUseComputer() {
-  const { data, error } = await supabase
-    .from('computer')
-    .select('user_id', { count: 'exact' })
-    .not('user_id', 'is', null)
-  onUseComputer.value = data.length
-}
-onMounted(() => {
-  countComputer(), countUseComputer()
+import { useComputerCountStore } from '@/stores/computerCount.js'
+import { computed } from 'vue'
+const store = useComputerCountStore()
+const onStock = computed(() => {
+  return store.totalComputer - store.onUseComputer
 })
 </script>
