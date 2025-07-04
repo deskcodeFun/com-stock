@@ -1,4 +1,5 @@
 <template>
+  <BaseButtonBack />
   <p class="my-4 mx-4 text-2xl font-bold text-blue-900">Add New Computer</p>
   <div class="flex flex-row">
     <!-- Form: Add new computer we don't need validation data cause it's all text -->
@@ -152,7 +153,21 @@
     </div>
     <!-- Add image form: select picture and resize to resolution H:150px -->
     <div>
-      <p class="">Add imgage</p>
+      <p class="">User Infomation</p>
+      <p>user name</p>
+      <p>office</p>
+      <p>start date</p>
+      <p>return date</p>
+      <BaseButton label="Skip"></BaseButton>
+      <BaseButton class="mx-8" label="Next"></BaseButton>
+    </div>
+    <div class="ml-24">
+      <p>Computer imgage</p>
+      <input type="file" class="w-64 h-24 my-4 border-2 border-blue-800" />
+      <div>
+        <BaseButton label="Skip"></BaseButton>
+        <BaseButton class="mx-8" label="Next"></BaseButton>
+      </div>
     </div>
   </div>
 </template>
@@ -164,6 +179,8 @@ import TextInput from '@/components/TextInput.vue'
 import { supabase } from '@/lib/supabaseClient'
 import { useToast } from 'vue-toastification'
 import router from '@/router'
+import BaseButtonBack from './BaseButtonBack.vue'
+import BaseButton from './BaseButton.vue'
 
 const toast = useToast()
 const assetComponent = reactive({

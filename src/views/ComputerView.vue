@@ -112,11 +112,11 @@
     <div v-if="store.computerDetail && store.computerDetail[0].staff">
       <div class="text-xl ml-4 text-green-900">User infomation</div>
       <div class="flex flex-row flex-wrap p-4 m-2 bg-white border border-blue-900 rounded-2xl">
-        <img
+        <!--<img
           class="h-50px mx-auto w-auto mb-4 px-4"
           src="\src\assets\images\avatar-128.png"
           alt="profile picture"
-        />
+        /> -->
         <table>
           <tbody class="align-baseline">
             <tr>
@@ -175,7 +175,7 @@
 </template>
 
 <script setup>
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useComputerCountStore } from '@/stores/computerCount'
 import BaseButtonBack from '@/components/BaseButtonBack.vue'
 import { computed } from 'vue'

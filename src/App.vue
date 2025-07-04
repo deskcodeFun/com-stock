@@ -12,5 +12,5 @@ import TheTopbar from '@/components/TheTopbar.vue'
 import { provideToast } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
-provideToast({ timeout: 3000 })
+provideToast()
 </script>

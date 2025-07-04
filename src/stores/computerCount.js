@@ -17,7 +17,9 @@ export const useComputerCountStore = defineStore('computerCount', () => {
   // totalComputer is counting all row in computer table
   async function fetchAllComputer() {
     const { data, error } = await supabase.from('computer').select('*', { count: 'exact' })
-    toast.success('Fetch all Computer Success')
+    toast.success('Fetch all Computer Success', {
+      timeout: 2000,
+    })
     if (!error) {
       computers.value = data
       totalComputer.value = data.length
@@ -42,7 +44,9 @@ export const useComputerCountStore = defineStore('computerCount', () => {
           .from('computer')
           .select('*,staff(*)')
           .eq('office_id', officeID)
+          .order('user_id')
         officeComputers.value = data
+        console.log('offoceComputers in store:', officeComputers)
       } catch (error) {
         console.log('Fect data error:', error)
       } finally {
@@ -50,7 +54,7 @@ export const useComputerCountStore = defineStore('computerCount', () => {
       }
     } else {
       try {
-        const { data } = await supabase.from('computer').select('*,staff(*)')
+        const { data } = await supabase.from('computer').select('*,staff(*)').order('user_id')
         officeComputers.value = data
       } catch (error) {
         console.log('Fect data error:', error)
