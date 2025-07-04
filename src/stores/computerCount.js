@@ -44,9 +44,8 @@ export const useComputerCountStore = defineStore('computerCount', () => {
           .from('computer')
           .select('*,staff(*)')
           .eq('office_id', officeID)
-          .order('user_id')
+          .order('user_id', { nullsFirst: false })
         officeComputers.value = data
-        console.log('offoceComputers in store:', officeComputers)
       } catch (error) {
         console.log('Fect data error:', error)
       } finally {
@@ -54,7 +53,11 @@ export const useComputerCountStore = defineStore('computerCount', () => {
       }
     } else {
       try {
-        const { data } = await supabase.from('computer').select('*,staff(*)').order('user_id')
+        const { data } = await supabase
+          .from('computer')
+          .select('*,staff(*)')
+          .order('user_id', { nullsFirst: true })
+
         officeComputers.value = data
       } catch (error) {
         console.log('Fect data error:', error)
