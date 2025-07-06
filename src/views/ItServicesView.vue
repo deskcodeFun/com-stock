@@ -1,25 +1,50 @@
 <template>
-  <!-- check login with auth user before add,update,delete computer -->
-  <!-- DON'T forget to update computer-update table -->
-  <!-- Form: Add new computer we don't need validation data cause it's all text -->
-
-  <!-- sub menu  -->
-  <div class="flex flex-col md:flex-row">
-    <RouterLink to="/add" class="bg-gray-200 px-4 py-1 rounded-md hover:bg-sky-200">
-      Add Computer
-    </RouterLink>
-  </div>
+  <button
+    class="px-2 mx-1 py-1 bg-gray-100 border-1 rounded-lg hover:bg-sky-200 focus:bg-sky-800 focus:text-white"
+    v-for="tab in tabs"
+    :key="tab"
+    @click="currentTab = tab.comp"
+  >
+    {{ tab.label }}
+  </button>
   <ItTodo />
-
-  <!-- Form: Add new user -->
-  <!-- Form: update computer -->
+  <div v-if="currentTab !== ''">
+    <component :is="currentTab"></component>
+  </div>
+  <div v-else></div>
 </template>
 
 <script setup>
-import ComputerAddNew from '@/components/ComputerAddNew.vue'
+import { shallowRef } from 'vue'
 
-import BaseButton from '@/components/BaseButton.vue'
-import ItTodo from '@/components/ItTodo.vue'
+import ChangeComputerForm from '@/components/TodoList/ChangeComputerForm.vue'
+import FixForm from '@/components/TodoList/FixForm.vue'
+import FormatComputerForm from '@/components/TodoList/FormatComputerForm.vue'
+import UpgradeComputerForm from '@/components/TodoList/UpgradeComputerForm.vue'
+import OtherForm from '@/components/TodoList/OtherForm.vue'
+import ItTodo from '@/components/TodoList/ItTodo.vue'
+
+const currentTab = shallowRef('')
+const tabs = [
+  {
+    label: 'Change Computer',
+    comp: ChangeComputerForm,
+  },
+  {
+    label: 'Fix Error',
+    comp: FixForm,
+  },
+  {
+    label: 'Format computer',
+    comp: FormatComputerForm,
+  },
+  {
+    label: 'Upgrade Computer',
+    comp: UpgradeComputerForm,
+  },
+  {
+    label: 'Other',
+    comp: OtherForm,
+  },
+]
 </script>
-<!-- lastComputer.value =data -->
-<!-- router.push(`/computer/${data.id}`) -->

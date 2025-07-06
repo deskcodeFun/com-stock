@@ -1,9 +1,9 @@
 <template>
   <!-- Show IT service TODO List and State of job -->
-  <div class="w-auto flex flex-col justify-center">
-    <p class="mt-4 flex justify-left ml-4">TODO List</p>
+  <div class="w-full flex flex-col justify-center">
+    <!-- <p class="mt-4 flex justify-left ml-4">TODO List</p> -->
     <div>
-      <table class="px-8 py-4 mt-4 w-content">
+      <table class="px-8 py-4 mt-4 w-full">
         <tbody>
           <tr class="p-2 border border-gray-400 bg-gray-50">
             <th class="m-4 p-2 border border-gray-400">Date</th>
