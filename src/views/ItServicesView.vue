@@ -1,4 +1,5 @@
 <template>
+  <!-- sub menu click to call child computer form -->
   <button
     class="px-2 mx-1 py-1 bg-gray-100 border-1 rounded-lg hover:bg-sky-200 focus:bg-sky-800 focus:text-white"
     v-for="tab in tabs"
@@ -7,7 +8,9 @@
   >
     {{ tab.label }}
   </button>
+  <!-- Show todo list -->
   <ItTodo />
+  <!-- show each Form -->
   <div v-if="currentTab !== ''">
     <component :is="currentTab"></component>
   </div>
