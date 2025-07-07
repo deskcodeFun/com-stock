@@ -13,20 +13,20 @@ import { RouterLink } from 'vue-router'
       <RouterLink
         to="/"
         class="px-4 py-2 text-sm mr-2 rounded-lg hover:bg-gray-200 md:text-lg"
-        active-class="bg-sky-200 px-2 rounded-lg  md:px-4 py-1 md:py-2 "
+        active-class="bg-sky-200 px-2 rounded-lg  md:px-4 py-1 md:py-2 hover:bg-sky-200 "
         >Home</RouterLink
       >
       <RouterLink
         to="/services"
         class="px-4 py-2 text-sm mr-2 rounded-lg hover:bg-gray-200 md:text-lg"
-        active-class="bg-sky-200 px-2 rounded-lg  md:px-4 py-1 md:py-2 "
+        active-class="bg-sky-200 px-2 rounded-lg  md:px-4 py-1 md:py-2 hover:bg-sky-200 "
       >
         IT-Services
       </RouterLink>
       <RouterLink
         to="/about"
         class="px-4 py-2 text-sm mr-2 rounded-lg hover:bg-gray-200 md:text-lg"
-        active-class="bg-sky-200 px-2 rounded-lg  md:px-4 py-1 md:py-2 "
+        active-class="bg-sky-200 px-2 rounded-lg  md:px-4 py-1 md:py-2hover:bg-sky-200"
       >
         About
       </RouterLink>
