@@ -55,14 +55,18 @@ const todoData = reactive([
   {
     date: '07-Jul-2025',
     appointment: '10-Jul-2025',
-    detail: 'Asset tag: Co-01-01-04 Change computer to CO-01-02-05',
+    detail: 'Asset tag: Co-01-01-04 Change computer to CO-01-02-05 ',
     state: 'waiting',
   },
   {
     date: '07-Jul-2025',
     appointment: '8-Jul-2025',
-    detail: 'Asset tag: Co-01-01-01 Re-Format computer',
+    detail:
+      'Asset tag: Co-01-01-01 Re-Format computer Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae laboriosam rerum iusto consequatur veniam neque doloremque quis, ullam dolorem in est ducimus commodi, esse nesciunt optio nostrum tempora eveniet. Placeat.',
     state: 'waiting',
   },
 ])
 </script>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae laboriosam rerum iusto consequatur
+veniam neque doloremque quis, ullam dolorem in est ducimus commodi, esse nesciunt optio nostrum
+tempora eveniet. Placeat.
