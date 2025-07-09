@@ -1,164 +1,68 @@
 <template>
-  <!-- Show IT service TODO List Board-->
-  <p class="text-2xl text-sky-900 text-center mt-4">Service Board</p>
-  <div class="flex justify-center">
-    <div class="min-h-screen flex overflow-x-scroll py-12">
-      <div
-        v-for="column in columns"
-        :key="column.title"
-        class="bg-gray-100 rounded-lg px-3 py-3 columns-sm mr-4"
-      >
-        <p class="text-gray-700 font-semibold font-sans tracking-wide text-sm">
-          {{ column.title }}
-        </p>
-        <!-- Draggable component comes from vuedraggable. It provides drag & drop functionality -->
-        <!-- <draggable :list="column.tasks" :animation="200" ghost-class="ghost-card" group="tasks"> -->
-        <!-- Each element from here will be draggable and animated. Note :key is very important here to be unique both for draggable and animations to be smooth & consistent. -->
-        <task-card
-          v-for="task in column.tasks"
-          :key="task.id"
-          :task="task"
-          class="mt-3 cursor-move"
-        ></task-card>
-        <!-- </transition-group> -->
-        <!-- </draggable> -->
-      </div>
-    </div>
+  <!-- Show IT service TODO List and State of job -->
+  <div class="justify-center px-8 py-4 mt-4">
+    <table class="table-auto">
+      <tbody>
+        <tr class="border border-gray-400 bg-gray-50">
+          <th class="m-4 p- border border-gray-400">Date</th>
+          <th class="m-4 p-2 border border-gray-400">Appointment</th>
+          <th class="m-4 p-2 border border-gray-400">Description</th>
+          <th class="m-4 p-2 border border-gray-400">Process</th>
+        </tr>
+      </tbody>
+      <tbody v-for="todos in todoData" :key="todos" index="todos">
+        <tr>
+          <td class="px-4 py-1 border border-gray-400 text-nowrap align-top">
+            {{ todos.date }}
+          </td>
+          <td class="px-4 py-1 border border-gray-400 text-nowrap align-top">
+            {{ todos.appointment }}
+          </td>
+          <td scope="col" class="w-full px-4 p-1 border border-gray-400 text-wrap">
+            {{ todos.detail }}
+          </td>
+          <td scope="col" class="w-fit px-4 p-1 border border-gray-400 text-nowrap">
+            {{ todos.state }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script setup>
-// import draggable from 'vuedraggable'
-import TaskCard from './TaskCard.vue'
+import { reactive } from 'vue'
 
-const columns = [
+const todoData = reactive([
   {
-    title: 'Backlog',
-    tasks: [
-      {
-        id: 1,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-      {
-        id: 2,
-        title: 'Provide documentation on integrations',
-        date: 'Sep 12',
-      },
-      {
-        id: 3,
-        title: 'Design shopping cart dropdown',
-        date: 'Sep 9',
-        type: 'Design',
-      },
-      {
-        id: 4,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-      {
-        id: 5,
-        title: 'Test checkout flow',
-        date: 'Sep 15',
-        type: 'QA',
-      },
-    ],
+    date: '07-Jul-2025',
+    appointment: '8-Jul-2025',
+    detail: 'Asset tag: CO-01-01-01 Re-Format computer',
+    state: 'waiting',
   },
   {
-    title: 'In Progress',
-    tasks: [
-      {
-        id: 6,
-        title: 'Design shopping cart dropdown',
-        date: 'Sep 9',
-        type: 'Design',
-      },
-      {
-        id: 7,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-      {
-        id: 8,
-        title: 'Provide documentation on integrations',
-        date: 'Sep 12',
-        type: 'Backend',
-      },
-    ],
+    date: '07-Jul-2025',
+    appointment: '8-Jul-2025',
+    detail: 'Asset tag: CO-01-01-02 Excel error',
+    state: 'waiting',
   },
   {
-    title: 'Review',
-    tasks: [
-      {
-        id: 9,
-        title: 'Provide documentation on integrations',
-        date: 'Sep 12',
-      },
-      {
-        id: 10,
-        title: 'Design shopping cart dropdown',
-        date: 'Sep 9',
-        type: 'Design',
-      },
-      {
-        id: 11,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-      {
-        id: 12,
-        title: 'Design shopping cart dropdown',
-        date: 'Sep 9',
-        type: 'Design',
-      },
-      {
-        id: 13,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-    ],
+    date: '07-Jul-2025',
+    appointment: '10-Jul-2025',
+    detail: 'Asset tag: CO-01-01-03 upgrage ram 8 GB',
+    state: 'waiting',
   },
   {
-    title: 'Done',
-    tasks: [
-      {
-        id: 14,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-      {
-        id: 15,
-        title: 'Design shopping cart dropdown',
-        date: 'Sep 9',
-        type: 'Design',
-      },
-      {
-        id: 16,
-        title: 'Add discount code to checkout page',
-        date: 'Sep 14',
-        type: 'Feature Request',
-      },
-    ],
+    date: '07-Jul-2025',
+    appointment: '10-Jul-2025',
+    detail: 'Asset tag: Co-01-01-04 Change computer to CO-01-02-05',
+    state: 'waiting',
   },
-]
+  {
+    date: '07-Jul-2025',
+    appointment: '8-Jul-2025',
+    detail: 'Asset tag: Co-01-01-01 Re-Format computer',
+    state: 'waiting',
+  },
+])
 </script>
-
-<style scoped>
-.column-width {
-  min-width: 320px;
-  width: 320px;
-}
-/* Unfortunately @apply cannot be setup in codesandbox, 
-but you'd use "@apply border opacity-50 border-blue-500 bg-gray-200" here */
-.ghost-card {
-  opacity: 0.5;
-  background: #f7fafc;
-  border: 1px solid #4299e1;
-}
-</style>
