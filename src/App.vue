@@ -1,5 +1,5 @@
 <template>
-  <main class="m-4 md:mx-16 my-2">
+  <main class="container m-4">
     <TheTopbar />
     <RouterView />
   </main>

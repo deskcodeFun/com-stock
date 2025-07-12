@@ -18,34 +18,26 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: AboutView,
     },
 
     {
       path: '/services',
       name: 'it-services',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: ItServicesView,
     },
     {
       path: '/add',
       name: 'computer-add',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: ComputerAddNew,
     },
     {
       path: '/computer/:id',
       name: 'computer-view',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: ComputerView,
     },
     {
