@@ -72,14 +72,9 @@ export const useComputerCountStore = defineStore('computerCount', () => {
       // const { data } = await supabase.from('computer').select('*,staff(*)').eq('id', computerId)
       const { data } = await supabase
         .from('computer')
-        .select(
-          `
-        *,
-        staff!inner(*, ...office!inner(*))
-        `,
-        )
-
+        .select(`*, staff(*, ...office!inner(*))`)
         .eq('id', computerId)
+
       computerDetail.value = data
     } catch (error) {
       console.error('Fetch detail error:', error)
