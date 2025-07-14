@@ -133,7 +133,13 @@
             </tr>
             <tr>
               <th class="text-gray-400 text-left text-xs">Office</th>
-              <td class="text-blue-800 px-4">{{ offficeName }}</td>
+              <td class="text-blue-800 px-4">
+                {{
+                  store.computerDetail[0].staff.name +
+                  ' ' +
+                  store.computerDetail[0].staff.short_name
+                }}
+              </td>
             </tr>
 
             <tr>
@@ -178,27 +184,9 @@
 import { useRoute } from 'vue-router'
 import { useComputerCountStore } from '@/stores/computerCount'
 import BaseButtonBack from '@/components/BaseButtonBack.vue'
-import { computed } from 'vue'
 
 const store = useComputerCountStore()
 const route = useRoute()
 let paramId = route.params.id
 store.getComputerDetail(paramId)
-const offficeName = computed(() => {
-  switch (store.computerDetail[0].staff.office_id) {
-    case 1:
-      return 'Nexus Poperty Agency Co., Ltd.'
-    case 2:
-      return 'Nexus Property Consultants Co., Ltd.'
-    case 3:
-      return 'Nexus Property Marketing Co., Ltd'
-    case 4:
-      return 'Nexus Real Estate Advisory Co., Ltd'
-    case 5:
-      return 'Nexus Retail Advisory Co., Ltd.'
-    default:
-      return ''
-  }
-})
-// const router = useRouter()
 </script>
