@@ -77,6 +77,7 @@ const store = useComputerLogStore()
 
 const getList = (list) => {
   return store.computerLog.filter((item) => item.state == list)
+  // return (store.computerLog ?? []).filter((item) => item.state == list)
 }
 const startDrag = (event, item) => {
   event.dataTransfer.dropEffect = 'move'
@@ -88,8 +89,10 @@ const onDrop = (event, list) => {
   const itemID = event.dataTransfer.getData('itemID')
   const item = store.computerLog.find((item) => item.id == itemID)
 
+  store.updateComputerLog(list, itemID)
+  // console.log('update state onDrop', store.computerLog)
   item.state = list
-  console.log('update state onDrop', store.computerLog)
+  // item.state = store.updateComputerLog(list, itemID)
 }
 
 let showForm = ref(false)
