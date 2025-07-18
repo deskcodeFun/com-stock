@@ -1,5 +1,5 @@
 <template>
-  <div class="w-fit my-4 flex flex-row flex-wrap justify-start">
+  <div class="w-fit my-4 flex flex-row flex-wrap justify-center">
     <div
       class="bg-white border-1 border-gray-200 rounded-2xl m-4 p-4 transition ease-in-out hover:shadow-2xl hover:transition-y-1 hover:scale-101"
       @click="router.push(`/computer/${computer.id}`)"

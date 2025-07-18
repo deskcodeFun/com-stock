@@ -6,6 +6,7 @@ import { useToast } from 'vue-toastification'
 export const useComputerLogStore = defineStore('computerLog', () => {
   const toast = useToast()
   const computerLog = ref()
+  let isLoading = ref(true)
 
   async function fetchComputerLog() {
     try {
@@ -20,6 +21,8 @@ export const useComputerLogStore = defineStore('computerLog', () => {
       console.log('computerLog in store:', computerLog)
     } catch (error) {
       console.error('Fetch Computer Log error:', error)
+    } finally {
+      isLoading = false
     }
   }
   async function updateComputerLog(list, itemID) {
@@ -31,6 +34,8 @@ export const useComputerLogStore = defineStore('computerLog', () => {
       // computerLog.value = data
     } catch (error) {
       console.error('UPDATE Computer Log error:', error)
+    } finally {
+      isLoading = false
     }
   }
   fetchComputerLog()

@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="w-auto flex flex-col md:flex-row md:p-4">
+  <div class="mx-4 px-4 flex flex-col md:flex-row md:p-4">
     <p class="font-bold text-sm text-center mb-2 text-blue-900 text-shadow-lg md:text-2xl">
       Computer Stock
     </p>
