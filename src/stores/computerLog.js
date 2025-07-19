@@ -6,11 +6,13 @@ import { useToast } from 'vue-toastification'
 export const useComputerLogStore = defineStore('computerLog', () => {
   const toast = useToast()
   const computerLog = ref()
+  const computerLogDetail = ref()
+
   let isLoading = ref(true)
 
   async function fetchComputerLog() {
     try {
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from('computer_update')
         .select('*,...computer!inner( asset_tag,user_id )')
         .order('id')
@@ -23,6 +25,28 @@ export const useComputerLogStore = defineStore('computerLog', () => {
       console.error('Fetch Computer Log error:', error)
     } finally {
       isLoading = false
+    }
+  }
+  async function getComputerLog(paramId) {
+    if (paramId !== '') {
+      try {
+        const { data, error } = await supabase
+          .from('computer_update')
+          .select('*')
+          .eq('computer_id', paramId)
+        toast.success('Fetch getComputerLog Success', {
+          timeout: 2000,
+        })
+        computerLogDetail.value = data
+
+        console.log('computerLogDetail in store', computerLogDetail)
+      } catch (error) {
+        console.error('Fetch Computer Log error:', error)
+      } finally {
+        isLoading = false
+      }
+    } else {
+      console.log('parmaID is undefined')
     }
   }
   async function updateComputerLog(list, itemID) {
@@ -40,10 +64,13 @@ export const useComputerLogStore = defineStore('computerLog', () => {
   }
   fetchComputerLog()
   updateComputerLog()
+  // getComputerLog()
   return {
     computerLog,
+    computerLogDetail,
 
     fetchComputerLog,
+    getComputerLog,
     updateComputerLog,
   }
 })

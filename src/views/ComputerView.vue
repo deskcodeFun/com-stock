@@ -161,32 +161,44 @@
     <div v-else></div>
   </main>
 
-  <section class="ml-8 my-8 text-xl">
+  <div class="ml-8 my-8 text-xl">
     Computer Record
-    <table class="w-1/2 mt-4">
-      <tbody>
-        <tr>
-          <th class="text-left p-1 border-2 border-gray-200">Date</th>
-          <th class="text-left p-1 border-2 border-gray-200">Detail</th>
-        </tr>
-        <tr>
-          <td class="text-lg py-2 pl-1 pr-8 border-2 border-gray-200">21-May-2025</td>
-          <td class="text-lg py-2 pl-1 pr-8 border-2 border-gray-200">
-            change hard disk to SSD 256Gb
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <div v-if="log.computerLogDetail">
+      <table class="w-1/2 mt-4">
+        <tbody>
+          <tr>
+            <th class="text-left p-1 border-2 border-gray-200">Date</th>
+            <th class="text-left p-1 border-2 border-gray-200">Detail</th>
+          </tr>
+          <tr v-for="log in log.computerLogDetail">
+            <td class="text-lg py-2 pl-1 pr-8 border-2 border-gray-200">
+              {{ log.create_at }}
+            </td>
+            <td class="text-lg py-2 pl-1 pr-8 border-2 border-gray-200">
+              {{ log.detail }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div v-else>
+      <p>NOT FOUND</p>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router'
 import { useComputerCountStore } from '@/stores/computerCount'
+import { useComputerLogStore } from '@/stores/computerLog'
 import BaseButtonBack from '@/components/BaseButtonBack.vue'
 
 const store = useComputerCountStore()
+const log = useComputerLogStore()
 const route = useRoute()
 let paramId = route.params.id
 store.getComputerDetail(paramId)
+log.getComputerLog(paramId)
+console.log('getComputerLog in View', log.computerLogDetail)
 </script>
