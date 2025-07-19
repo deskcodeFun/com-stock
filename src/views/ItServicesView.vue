@@ -1,11 +1,20 @@
 <template>
+  <button
+    @click="toggleComponent"
+    class="mx-4 px-4 py-2bg-gray-50 mt-2 font-bold text-xl hover:bg-sky-200"
+  >
+    Add New Service
+  </button>
+  <section v-show="showForm">
+    <ServiceForm />
+  </section>
   <main class="mx-8 px-8 mt-4 flex md:flex-row justify-center">
     <!-- Drop zone 1 -->
     <div
       @drop="onDrop($event, 1)"
       @dragenter.prvent
       @dragover.prevent
-      class="w-1/3 bg-gray-50 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
+      class="w-1/3 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
     >
       <p
         class="border-b-2 bg-white rounded-2xl text-xl font-bold text-center py-2 mb-2 text-blue-800"
@@ -27,7 +36,7 @@
       @drop="onDrop($event, 2)"
       @dragenter.prvent
       @dragover.prevent
-      class="w-1/3 bg-gray-50 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
+      class="w-1/3 bg-red-50/30 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
     >
       <p
         class="border-b-2 bg-white rounded-2xl text-xl font-bold text-center py-2 mb-2 text-blue-800"
@@ -49,7 +58,7 @@
       @drop="onDrop($event, 3)"
       @dragenter.prvent
       @dragover.prevent
-      class="w-1/3 bg-gray-50 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
+      class="w-1/3 bg-green-50/30 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
     >
       <p
         class="border-b-2 bg-white rounded-2xl text-xl font-bold text-center py-2 mb-2 text-blue-800"
@@ -67,17 +76,6 @@
       </div>
     </div>
   </main>
-
-  <button
-    @click="toggleComponent"
-    class="w-3/5 mx-8 px-8 bg-gray-50 mt-2 font-bold text-xl hover:bg-sky-200"
-  >
-    +
-  </button>
-
-  <section v-show="showForm">
-    <ServiceForm />
-  </section>
 </template>
 
 <script setup>

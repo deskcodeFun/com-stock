@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row mt-4">
+  <div class="flex flex-row my-4">
     <p class="text-sm md:text-lg text-gray-500 mx-8">Filter by :</p>
     <select
       class="px-8 py-1 w-fit border-1 border-blue-300"
@@ -16,12 +16,17 @@
   </div>
   <!--  Show data -->
   <div v-if="store.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
-  <div v-else class="my-4 px-4 flex flex-row flex-wrap justify-start">
-    <ComputerCard
+  <div v-else>
+    <ul class="bg-sky-50/30 flex flex-row flex-wrap justify-center md:justify-around">
+      <li v-for="computer in store.officeComputers" :key="computer.id">
+        <ComputerCard :computer="computer" />
+      </li>
+    </ul>
+    <!-- <ComputerCard
       v-for="computer in store.officeComputers"
       :key="computer.id"
       :computer="computer"
-    />
+    /> -->
   </div>
 </template>
 
