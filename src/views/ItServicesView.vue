@@ -8,74 +8,69 @@
   <section v-show="showForm">
     <ServiceForm />
   </section>
-  <main class="mx-8 px-8 mt-4 flex md:flex-row justify-center">
+  <!-- show Service table -->
+  <div class="mx-8 px-8 mt-4 flex md:flex-row justify-center">
     <!-- Drop zone 1 -->
-    <div
-      @drop="onDrop($event, 1)"
-      @dragenter.prvent
-      @dragover.prevent
-      class="w-1/3 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
-    >
-      <p
-        class="border-b-2 bg-white rounded-2xl text-xl font-bold text-center py-2 mb-2 text-blue-800"
-      >
-        Back Log
-      </p>
+    <div class="w-1/3 border-2 bg-white rounded-2xl py-2 mb-2">
+      <p class="text-center text-xl text-blue-800">Back Log</p>
       <div
-        v-for="item in getList(1)"
-        :key="item.id"
-        draggable="true"
-        @dragstart="startDrag($event, item)"
+        @drop="onDrop($event, 1)"
+        @dragenter.prvent
+        @dragover.prevent
+        class="overflow-y-scroll hide-scroll h-210 mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
       >
-        <ServiceCard :item="item" class="bg-sky-50" />
-        <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
+        <div
+          v-for="item in getList(1)"
+          :key="item.id"
+          draggable="true"
+          @dragstart="startDrag($event, item)"
+        >
+          <ServiceCard :item="item" class="bg-sky-50" />
+          <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
+        </div>
       </div>
     </div>
+
     <!-- Drop zone 2 -->
-    <div
-      @drop="onDrop($event, 2)"
-      @dragenter.prvent
-      @dragover.prevent
-      class="w-1/3 bg-red-50/30 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
-    >
-      <p
-        class="border-b-2 bg-white rounded-2xl text-xl font-bold text-center py-2 mb-2 text-blue-800"
-      >
-        On Process
-      </p>
+    <div class="w-1/3 border-2 bg-white rounded-2xl py-2 mb-2">
+      <p class="text-center text-xl text-blue-800">On Process/p></p>
       <div
-        v-for="item in getList(2)"
-        :key="item.id"
-        draggable="true"
-        @dragstart="startDrag($event, item)"
+        @drop="onDrop($event, 2)"
+        @dragenter.prvent
+        @dragover.prevent
+        class="overflow-y-scroll hide-scroll h-210 mx-4 bg-red-50/30 border border-blue-600 rounded-xl min-h-50px"
       >
-        <ServiceCard :item="item" class="bg-red-50" />
-        <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
+        <div
+          v-for="item in getList(2)"
+          :key="item.id"
+          draggable="true"
+          @dragstart="startDrag($event, item)"
+        >
+          <ServiceCard :item="item" class="bg-red-50" />
+          <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
+        </div>
       </div>
     </div>
     <!-- Drop zone 3 -->
-    <div
-      @drop="onDrop($event, 3)"
-      @dragenter.prvent
-      @dragover.prevent
-      class="w-1/3 bg-green-50/30 border border-blue-600 rounded-xl min-h-50px min-w-40 m-4"
-    >
-      <p
-        class="border-b-2 bg-white rounded-2xl text-xl font-bold text-center py-2 mb-2 text-blue-800"
-      >
-        Done
-      </p>
+    <div class="w-1/3 border-2 bg-white rounded-2xl py-2 mb-2">
+      <p class="text-center text-xl text-blue-800">Back Log</p>
       <div
-        v-for="item in getList(3)"
-        :key="item.id"
-        draggable="true"
-        @dragstart="startDrag($event, item)"
+        @drop="onDrop($event, 3)"
+        @dragenter.prvent
+        @dragover.prevent
+        class="overflow-y-scroll hide-scroll h-210 mx-4 bg-green-50/30 border border-blue-600 rounded-xl min-h-50px"
       >
-        <ServiceCard :item="item" class="bg-green-50" />
-        <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
+        <div
+          v-for="item in getList(3)"
+          :key="item.id"
+          draggable="true"
+          @dragstart="startDrag($event, item)"
+        >
+          <ServiceCard :item="item" class="bg-green-50" />
+        </div>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup>
@@ -120,3 +115,8 @@ const toggleComponent = () => {
   return (showForm.value = !showForm.value)
 }
 </script>
+<style scoped>
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+</style>
