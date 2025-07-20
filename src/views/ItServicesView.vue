@@ -11,8 +11,12 @@
   <!-- show Service table -->
   <div class="mx-8 px-8 mt-4 flex md:flex-row justify-center">
     <!-- Drop zone 1 -->
-    <div class="w-1/3 border-2 bg-white rounded-2xl py-2 mb-2">
-      <p class="text-center text-xl text-blue-800">Back Log</p>
+    <div class="w-1/3 bg-white rounded-2xl py-2 mb-2">
+      <p
+        class="mb-2 mx-4 pb-2 border-2 border-blue-600 rounded-2xl text-center text-xl text-blue-800"
+      >
+        Back Log
+      </p>
       <div
         @drop="onDrop($event, 1)"
         @dragenter.prvent
@@ -26,14 +30,17 @@
           @dragstart="startDrag($event, item)"
         >
           <ServiceCard :item="item" class="bg-sky-50" />
-          <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
         </div>
       </div>
     </div>
 
     <!-- Drop zone 2 -->
-    <div class="w-1/3 border-2 bg-white rounded-2xl py-2 mb-2">
-      <p class="text-center text-xl text-blue-800">On Process/p></p>
+    <div class="w-1/3 bg-white rounded-2xl py-2 mb-2">
+      <p
+        class="mb-2 mx-4 pb-2 border-2 border-red-600 rounded-2xl text-center text-xl text-blue-800"
+      >
+        On Process/p>
+      </p>
       <div
         @drop="onDrop($event, 2)"
         @dragenter.prvent
@@ -52,8 +59,12 @@
       </div>
     </div>
     <!-- Drop zone 3 -->
-    <div class="w-1/3 border-2 bg-white rounded-2xl py-2 mb-2">
-      <p class="text-center text-xl text-blue-800">Back Log</p>
+    <div class="w-1/3 bg-white rounded-2xl py-2 mb-2">
+      <p
+        class="mb-2 mx-4 pb-2 border-2 border-green-600 rounded-2xl text-center text-xl text-blue-800"
+      >
+        Back Log
+      </p>
       <div
         @drop="onDrop($event, 3)"
         @dragenter.prvent
