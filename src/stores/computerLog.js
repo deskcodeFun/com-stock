@@ -39,7 +39,6 @@ export const useComputerLogStore = defineStore('computerLog', () => {
           timeout: 2000,
         })
         computerLogDetail.value = data
-
         console.log('computerLogDetail in store', computerLogDetail)
       } catch (error) {
         console.error('Fetch Computer Log error:', error)
@@ -49,6 +48,7 @@ export const useComputerLogStore = defineStore('computerLog', () => {
     } else {
       console.log('parmaID is undefined')
     }
+    isLoading = false
   }
   async function updateComputerLog(list, itemID) {
     try {

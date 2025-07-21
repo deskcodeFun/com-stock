@@ -9,9 +9,9 @@
     <ServiceForm />
   </section>
   <!-- show Service table -->
-  <div class="mx-8 px-8 mt-4 flex md:flex-row justify-center">
+  <div class="mx-1 md:mx-8 px-1 md:px-8 mt-4 flex flex-col md:flex-row justify-center">
     <!-- Drop zone 1 -->
-    <div class="w-1/3 bg-white rounded-2xl py-2 mb-2">
+    <div class="w-full md:w-1/3 bg-white rounded-2xl md:py-2 md:mb-2">
       <p
         class="mb-2 mx-4 pb-2 border-2 border-blue-600 rounded-2xl text-center text-xl text-blue-800"
       >
@@ -21,7 +21,7 @@
         @drop="onDrop($event, 1)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-210 mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(1)"
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Drop zone 2 -->
-    <div class="w-1/3 bg-white rounded-2xl py-2 mb-2">
+    <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
         class="mb-2 mx-4 pb-2 border-2 border-red-600 rounded-2xl text-center text-xl text-blue-800"
       >
@@ -45,7 +45,7 @@
         @drop="onDrop($event, 2)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-210 mx-4 bg-red-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(2)"
@@ -59,7 +59,7 @@
       </div>
     </div>
     <!-- Drop zone 3 -->
-    <div class="w-1/3 bg-white rounded-2xl py-2 mb-2">
+    <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
         class="mb-2 mx-4 pb-2 border-2 border-green-600 rounded-2xl text-center text-xl text-blue-800"
       >
@@ -69,7 +69,7 @@
         @drop="onDrop($event, 3)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-210 mx-4 bg-green-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(3)"
