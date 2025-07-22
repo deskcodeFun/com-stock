@@ -1,9 +1,20 @@
 <template>
-  <div class="mx-4 px-8 bg-sky-50">
+  <div class="mx-4 px-8 bg-sky-50/30">
     <!-- Header Form: every form have same header -->
     <div>
-      <p class="font-bold text-2xl">User infomation</p>
-      <p>Date Appointment :</p>
+      <p class="text-blue-900 text-xl py-2">User infomation</p>
+      <p class="text-gray-600 text-sm">
+        Date Appointment :
+        <span>
+          <input
+            type="date"
+            value="userName"
+            v-model="userName"
+            class="mx-2 px-2 text-lg border-b-blue-800 border-2"
+          />
+        </span>
+      </p>
+
       <p>User Name</p>
       <p>Departmant</p>
       <p>email</p>
@@ -12,7 +23,7 @@
     <br />
     <!-- Filter section -->
     <div class="flex flex-row">
-      <p class="mr-4">Notification Type :</p>
+      <p class="mr-4">Service Type :</p>
       <input type="radio" id="1" value="1" v-model="selected" />
       <label for="1">Error</label>
       <input type="radio" id="2" value="2" v-model="selected" />
