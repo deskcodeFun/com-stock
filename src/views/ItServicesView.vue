@@ -37,15 +37,15 @@
     <!-- Drop zone 2 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
-        class="mb-2 mx-4 pb-2 border-2 border-red-600 rounded-2xl text-center text-xl text-blue-800"
+        class="mb-2 mx-4 pb-2 border-2 border-red-600 rounded-2xl text-center text-xl text-red-800"
       >
-        On Process/p>
+        On Process
       </p>
       <div
         @drop="onDrop($event, 2)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-red-50/30 border border-red-600 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(2)"
@@ -54,14 +54,13 @@
           @dragstart="startDrag($event, item)"
         >
           <ServiceCard :item="item" class="bg-red-50" />
-          <!-- {{ item.id + ' ' + item.detail + ' ' + item.state }} -->
         </div>
       </div>
     </div>
     <!-- Drop zone 3 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
-        class="mb-2 mx-4 pb-2 border-2 border-green-600 rounded-2xl text-center text-xl text-blue-800"
+        class="mb-2 mx-4 pb-2 border-2 border-green-600 rounded-2xl text-center text-xl text-green-800"
       >
         Back Log
       </p>
@@ -69,7 +68,7 @@
         @drop="onDrop($event, 3)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-210 mx-1 md:mx-4 bg-green-50/30 border border-green-600 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(3)"
