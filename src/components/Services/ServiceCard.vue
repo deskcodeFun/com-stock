@@ -1,6 +1,25 @@
 <template>
-  <!-- Drop Zone: each coloum -->
-  <div class="text-black mx-2 my-4 p-2 border-1 border-blue-950 rounded-lg">
+  <!-- each Service card in each Zone -->
+
+  <div
+    @click="open = true"
+    class="text-black mx-2 my-4 p-2 border-1 border-blue-950 rounded-lg hover:bg-amber-500"
+  >
+    <Teleport to="body">
+      <div v-if="open" class="modal">
+        <ServiceModal :itemDetail="item" @toggle-open="open = false" />
+        <!-- <div class="modal-content">
+          {{ props.item.id }}
+          {{ props.item.detail }}
+          <div class="flex flex-row justify-between">
+            <button @click="open = false" class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl">
+              Close
+            </button>
+            <button class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl">Cancel</button>
+          </div>
+        </div> -->
+      </div>
+    </Teleport>
     <div class="flex flex-col md:flex-row justify-between">
       <p class="text-gray-500 text-sm">
         Service ID:
@@ -15,7 +34,6 @@
         </span>
       </p>
     </div>
-
     <div class="flex flex-col md:flex-row justify-between">
       <p class="text-gray-500 text-sm">
         Create date:
@@ -40,7 +58,29 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import ServiceModal from './ServiceModal.vue'
+
+const open = ref(false)
 const props = defineProps({
   item: Object,
 })
 </script>
+<style scoped>
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(219, 45, 45, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+</style>

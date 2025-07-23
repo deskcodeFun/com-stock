@@ -117,6 +117,7 @@
 <script setup>
 import { ref } from 'vue'
 
+const userName = ref()
 const selected = ref(0)
 const checkList = ref([])
 const mapDrive = ref([])

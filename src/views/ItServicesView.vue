@@ -11,7 +11,7 @@
   </div>
 
   <!-- show Service table -->
-  <div class="mx-1 md:mx-8 px-1 md:px-8 mt-4 flex flex-col md:flex-row justify-center">
+  <div class="relative mx-1 md:mx-8 px-1 md:px-8 mt-4 flex flex-col md:flex-row justify-center">
     <!-- Drop zone 1 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl md:py-2 md:mb-2">
       <p
@@ -35,13 +35,12 @@
         </div>
       </div>
     </div>
-
     <!-- Drop zone 2 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
         class="mb-2 mx-4 pb-2 border-2 border-red-600 rounded-2xl text-center text-xl text-blue-800"
       >
-        On Process/p>
+        On Process
       </p>
       <div
         @drop="onDrop($event, 2)"
@@ -94,10 +93,6 @@ import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
 
 const store = useComputerLogStore()
-
-// const getList = (list) => {
-//   return store.computerLog.filter((item) => item.state == list)
-// }
 
 const getList = (list) => {
   if (store.computerLog) {
