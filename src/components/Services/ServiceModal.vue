@@ -2,14 +2,14 @@
   <div class="modal-content">
     {{ props.itemDetail.id }}
     {{ props.itemDetail.detail }}
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-end">
       <button
         @click="$emit('toggle-open')"
         class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl"
       >
         Close
       </button>
-      <button class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl">Cancel</button>
+      <!-- <button class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl">Cancel</button> -->
     </div>
   </div>
 </template>
