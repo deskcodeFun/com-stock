@@ -17,7 +17,7 @@
   <!--  Show data -->
   <div v-if="store.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
   <div v-else>
-    <ul class="bg-sky-50/30 flex flex-row flex-wrap justify-center md:justify-around">
+    <ul class="bg-sky-50/30 flex flex-row flex-wrap justify-center md:justify-start">
       <li v-for="computer in store.officeComputers" :key="computer.id">
         <ComputerCard :computer="computer" />
       </li>

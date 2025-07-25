@@ -13,6 +13,10 @@
       <table>
         <tbody>
           <tr>
+            <th class="text-gray-400 text-left text-xs">Assets</th>
+            <td class="text-blue-800 px-4 font-bold">{{ computer.asset_tag }}</td>
+          </tr>
+          <tr>
             <th class="text-gray-400 text-left text-xs">
               <p v-if="computer.staff">User</p>
               <p v-else>Status</p>
@@ -36,10 +40,7 @@
             <th class="text-gray-400 text-left text-xs">Ram</th>
             <td class="text-blue-800 px-4">{{ computer.ram.substring(0, 4) }}</td>
           </tr>
-          <tr>
-            <th class="text-gray-400 text-left text-xs">Assets</th>
-            <td class="text-blue-800 px-4">{{ computer.asset_tag }}</td>
-          </tr>
+
           <tr>
             <th class="text-gray-400 text-left text-xs">Serial</th>
             <td class="text-blue-800 px-4">{{ computer.serial_tag }}</td>

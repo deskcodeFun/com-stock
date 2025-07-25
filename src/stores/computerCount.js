@@ -50,7 +50,7 @@ export const useComputerCountStore = defineStore('computerCount', () => {
           .from('computer')
           .select('*,staff(*)')
           .eq('office_id', officeID)
-          .order('user_id', { nullsFirst: false })
+          .order('asset_tag', { nullsFirst: false })
         officeComputers.value = data
       } catch (error) {
         console.log('Fect data error:', error)

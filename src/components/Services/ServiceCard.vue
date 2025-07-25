@@ -3,44 +3,34 @@
 
   <div
     @click="open = true"
-    class="text-black mx-2 my-4 p-2 border-1 border-blue-950 rounded-lg hover:bg-amber-500"
+    class="w-auto text-black mx-2 my-4 p-2 border-1 border-blue-950 rounded-lg hover:bg-sky-100"
   >
-    <Teleport to="body">
+    <!-- <Teleport to="body">
       <div v-if="open" class="modal">
         <ServiceModal :itemDetail="item" @toggle-open="open = false" />
-        <!-- <div class="modal-content">
-          {{ props.item.id }}
-          {{ props.item.detail }}
-          <div class="flex flex-row justify-between">
-            <button @click="open = false" class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl">
-              Close
-            </button>
-            <button class="px-4 py-1 mt-4 bg-green-600 text-white rounded-xl">Cancel</button>
-          </div>
-        </div> -->
       </div>
-    </Teleport>
+    </Teleport> -->
     <div class="flex flex-col md:flex-row justify-between">
-      <p class="text-gray-500 text-sm">
-        Service ID:
-        <span class="px-2 text-black text-md">
-          {{ props.item.id }}
-        </span>
-      </p>
       <p class="text-gray-500 text-sm">
         Computer :
         <span class="px-2 text-black text-md">
           {{ props.item.asset_tag }}
         </span>
       </p>
-    </div>
-    <div class="flex flex-col md:flex-row justify-between">
       <p class="text-gray-500 text-sm">
         Create date:
         <span class="px-2 text-black text-md">
           {{ props.item.create_at }}
         </span>
       </p>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between">
+      <!-- <p class="text-gray-500 text-sm">
+        Create date:
+        <span class="px-2 text-black text-md">
+          {{ props.item.create_at }}
+        </span>
+      </p> -->
       <p class="text-gray-500 text-sm">
         Appointment:
         <span class="px-2 text-black text-md">
@@ -66,6 +56,7 @@ const props = defineProps({
   item: Object,
 })
 </script>
+
 <style scoped>
 .modal {
   position: fixed;
