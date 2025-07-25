@@ -8,7 +8,7 @@
   <Transition name="slide-fade">
     <Teleport to="body">
       <div v-if="showForm" class="modal">
-        <ServiceForm @toggle-showForm="showForm = false" />
+        <ServiceForm @toggle-showForm="showForm = false" class="overflow-scroll" />
       </div>
     </Teleport>
   </Transition>
