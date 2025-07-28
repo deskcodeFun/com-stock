@@ -10,12 +10,12 @@ export const useComputerLogStore = defineStore('computerLog', () => {
 
   let isLoading = ref(true)
 
+  // .select('*,...computer!inner( asset_tag,user_id )')
   async function fetchComputerLog() {
     try {
       const { data } = await supabase
         .from('computer_update')
-        .select('*,...computer!inner( asset_tag,user_id )')
-
+        .select(`*, computer(*, ...staff!inner(*))`)
       toast.success('Fetch Computer_UPDATE Success', {
         timeout: 1000,
       })

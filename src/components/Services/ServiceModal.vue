@@ -1,7 +1,31 @@
 <template>
-  <div class="modal-content">
-    {{ props.itemDetail.id }}
-    {{ props.itemDetail.detail }}
+  <div class="bg-green-50 p-4 w-150 rounded-xl border-1 border-green-900">
+    <div class="flex justify-end">
+      <XMarkIcon
+        @click="$emit('toggle-open')"
+        class="w-6 h-6 mb-2 rounded-full text-red-900 hover:bg-red-100 "
+      />
+    </div>
+
+    <div class="flex flex-row justify-between mr-4">
+      <p>Appointment date: {{ props.itemDetail.appointment }}</p>
+      <p>asset tag: {{ props.itemDetail.computer.asset_tag }}</p>
+    </div>
+    <div class="mt-1 flex flex-row align-bottom">
+      <p>User Name:</p>
+
+      <p class="font-bold text-md ml-4 text-blue-900">
+        {{ props.itemDetail.computer.fname + ' ' + props.itemDetail.computer.lname }}
+      </p>
+    </div>
+    <p class="flex flex-row text-wrap text-sm text-blue-900 font-bold mt-4 mb-1 justify-between">
+      DETAIL:
+      <span class="justify-end flex flex-row">
+        <PencilSquareIcon  class="w-6 h-6 inline-block -mt-1 mx-2  text-green-900 hover:bg-green-100 "/>
+        <TrashIcon class="w-6 h-6 inline-block -mt-1 mx-2 stroke-red-800 hover:bg-red-100" />
+      </span>
+    </p>
+    <p class="text-lg border-1 border-green-800 px-4 py-2">{{ props.itemDetail.detail }}</p>
     <div class="flex flex-row justify-end">
       <button
         @click="$emit('toggle-open')"
@@ -15,26 +39,11 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+
+import { XMarkIcon,PencilSquareIcon,TrashIcon } from '@heroicons/vue/24/outline'
+
+
 // const emit = defineEmits('open')
 const props = defineProps({ itemDetail: Object })
 console.log('item is', props.itemDetail)
 </script>
-
-<style scoped>
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(219, 45, 45, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-}
-</style>

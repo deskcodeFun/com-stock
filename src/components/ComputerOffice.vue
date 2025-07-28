@@ -12,6 +12,7 @@
       <option value="3">NPM</option>
       <option value="4">NRA</option>
       <option value="5">NRT</option>
+      <option value="6">OHO</option>
     </select>
   </div>
   <!--  Show data -->

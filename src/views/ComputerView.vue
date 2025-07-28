@@ -110,8 +110,8 @@
     </div>
     <!-- Check user_id is not null -->
     <div v-if="store.computerDetail && store.computerDetail[0].staff">
-      <div class="text-xl ml-4 text-green-900">User infomation</div>
-      <div class="flex flex-row flex-wrap p-4 m-2 bg-white border border-blue-900 rounded-2xl">
+      <div class="text-xl ml-14 text-blue-900">User infomation</div>
+      <div class="flex flex-row flex-wrap p-4 ml-12 mt-2 bg-white border border-blue-900 rounded-2xl">
         <!--<img
           class="h-50px mx-auto w-auto mb-4 px-4"
           src="\src\assets\images\avatar-128.png"
@@ -161,7 +161,7 @@
     <div v-else></div>
   </main>
 
-  <div class="ml-8 my-8 text-xl">
+  <div class="ml-8 my-8 text-xl text-blue-900">
     Computer Record
     <div v-if="log.computerLogDetail">
       <table class="w-1/2 mt-4">
@@ -201,4 +201,5 @@ let paramId = route.params.id
 store.getComputerDetail(paramId)
 log.getComputerLog(paramId)
 console.log('getComputerLog in View', log.computerLogDetail)
+console.log('getComputerDetail in View', store.getComputerDetail)
 </script>

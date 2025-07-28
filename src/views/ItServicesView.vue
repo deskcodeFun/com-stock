@@ -1,10 +1,7 @@
 <template>
-  <button
-    @click="toggleComponent"
-    class="mx-4 px-4 py-2bg-gray-50 mt-2 font-bold text-xl hover:bg-sky-200"
-  >
-    Add New Service
-  </button>
+  <!-- Modal show detail of service 
+       
+  -->
   <Transition name="slide-fade">
     <Teleport to="body">
       <div v-if="showForm" class="modal">
@@ -17,16 +14,21 @@
   <div class="relative mx-1 md:mx-8 px-1 md:px-8 mt-4 flex flex-col md:flex-row justify-center">
     <!-- Drop zone 1 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl md:py-2 md:mb-2">
-      <p
-        class="mb-2 mx-4 pb-2 border-2 border-blue-600 rounded-2xl text-center text-xl text-blue-800"
-      >
-        Back Log
-      </p>
+      <div class="mb-2 mx-4 pb-2 border-2 border-blue-800 rounded-2xl text-xl text-blue-800">
+        <p class="text-center">Back Log
+        <button 
+          type="button" 
+          @click="isShowForm" 
+          class="mt-0.5 mr-0.5 text-2xl font-bold text-blue-900 w-8 h-8 rounded-full bg-gray-50 hover:bg-sky-200 float-end"
+          >+
+        </button>
+        </p>
+      </div>
       <div
         @drop="onDrop($event, 1)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll w-full h-80 md:h-140 md:w-auto mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll w-full h-80 md:h-140 md:w-auto mx-1 md:mx-4 bg-sky-50/30 border border-blue-800 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(1)"
@@ -41,7 +43,7 @@
     <!-- Drop zone 2 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
-        class="mb-2 mx-4 pb-2 border-2 border-red-600 rounded-2xl text-center text-xl text-blue-800"
+        class="mb-2 mx-4 pb-2 border-2 border-red-800 rounded-2xl text-center text-xl text-blue-800"
       >
         On Process
       </p>
@@ -49,7 +51,7 @@
         @drop="onDrop($event, 2)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-140 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-140 mx-1 md:mx-4 bg-red-50/30 border border-red-800 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(2)"
@@ -65,7 +67,7 @@
     <!-- Drop zone 3 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
       <p
-        class="mb-2 mx-4 pb-2 border-2 border-green-600 rounded-2xl text-center text-xl text-blue-800"
+        class="mb-2 mx-4 pb-2 border-2 border-green-800 rounded-2xl text-center text-xl text-blue-800"
       >
         Done
       </p>
@@ -73,7 +75,7 @@
         @drop="onDrop($event, 3)"
         @dragenter.prvent
         @dragover.prevent
-        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-140 mx-1 md:mx-4 bg-sky-50/30 border border-blue-600 rounded-xl min-h-50px"
+        class="overflow-y-scroll hide-scroll h-80 w-full md:w-auto md:h-140 mx-1 md:mx-4 bg-green-50/30 border border-green-800 rounded-xl min-h-50px"
       >
         <div
           v-for="item in getList(3)"
@@ -94,6 +96,7 @@ import { useComputerLogStore } from '@/stores/computerLog.js'
 
 import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
+import BaseButton from '@/components/BaseButton.vue'
 
 const store = useComputerLogStore()
 
@@ -122,7 +125,7 @@ const onDrop = (event, list) => {
 }
 
 let showForm = ref(false)
-const toggleComponent = () => {
+const isShowForm = () => {
   return (showForm.value = !showForm.value)
 }
 </script>
@@ -143,17 +146,13 @@ const toggleComponent = () => {
   align-items: top;
   transition: 10s ease-in-out;
 }
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-}
+
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.8s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,

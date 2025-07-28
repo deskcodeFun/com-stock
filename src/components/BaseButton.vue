@@ -1,5 +1,5 @@
 <template>
-  <button class="px-4 py-1 rounded-xl text-blue-800 bg-gray-200 hover:bg-blue-200">
+  <button class="px-8 py-1 rounded-xl text-blue-800 bg-gray-200 hover:bg-blue-200">
     {{ label }}
   </button>
 </template>
