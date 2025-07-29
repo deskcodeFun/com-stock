@@ -6,13 +6,12 @@
       @change="handleChange"
       v-model="officeFilter"
     >
+      <option value="" disabled>Select BU</option>
+      <option v-for="officeName in officeName.office" :key="officeName.id" :value="officeName.id">
+        {{ officeName.short_name }}
+      </option>
       <option value="0">All</option>
-      <option value="1">NPA</option>
-      <option value="2">NPC</option>
-      <option value="3">NPM</option>
-      <option value="4">NRA</option>
-      <option value="5">NRT</option>
-      <option value="6">OHO</option>
+     
     </select>
   </div>
   <!--  Show data -->
@@ -35,8 +34,10 @@
 import { onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useComputerCountStore } from '@/stores/computerCount'
+import { useOfficeStore} from '@/stores/office'
 import ComputerCard from '@/components/ComputerCard.vue'
 const store = useComputerCountStore()
+const officeName = useOfficeStore()
 const router = useRouter()
 const route = useRoute()
 
