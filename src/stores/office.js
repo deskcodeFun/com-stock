@@ -12,7 +12,6 @@ export const useOfficeStore = defineStore('officeStore',()=>{
     try {
       const {data,error} = await supabase.from('office').select('*')
       office.value =data
-      console.log('office in store', office)
     } catch (error) {
       toast.error('Error: Can not fetch office store',error)
     } finally{

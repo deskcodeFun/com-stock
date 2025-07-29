@@ -200,6 +200,5 @@ const route = useRoute()
 let paramId = route.params.id
 store.getComputerDetail(paramId)
 log.getComputerLog(paramId)
-console.log('getComputerLog in View', log.computerLogDetail)
-console.log('getComputerDetail in View', store.getComputerDetail)
+
 </script>

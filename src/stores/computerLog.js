@@ -20,7 +20,7 @@ export const useComputerLogStore = defineStore('computerLog', () => {
         timeout: 1000,
       })
       computerLog.value = data
-      console.log('computerLog in store:', computerLog)
+     
     } catch (error) {
       console.error('Fetch Computer Log error:', error)
     } finally {
@@ -39,7 +39,7 @@ export const useComputerLogStore = defineStore('computerLog', () => {
           timeout: 2000,
         })
         computerLogDetail.value = data
-        console.log('computerLogDetail in store', computerLogDetail)
+        
       } catch (error) {
         console.error('Fetch Computer Log error:', error)
       } finally {
