@@ -4,7 +4,7 @@
   -->
   <Transition name="slide-fade">
     <Teleport to="body">
-      <div v-if="showForm" class="modal" @click.self="showForm=false">
+      <div v-if="showForm" class="modal " @click.self="showForm=false">
         <ServiceForm @toggle-showForm="showForm = false" class="overflow-scroll" />
       </div>
     </Teleport>
@@ -144,8 +144,10 @@ const isShowForm = () => {
   justify-content: right;
   align-items: top;
   transition: 10s ease-in-out;
-  backdrop-filter: blur(5px);
-  background-color: rgba(229, 229, 229, 0.61);
+  backdrop-filter: blur(4px);
+  /* background-color: rgba(229, 229, 229, 0.61); */
+  background: #57EB94;
+background: linear-gradient(180deg, rgba(87, 176, 235, 0.15) 50%, rgba(243, 243, 237, .1) 100%);
 }
 
 .slide-fade-enter-active {
