@@ -1,5 +1,5 @@
 <template>
-  <div class=" mt-2 px-8 bg-teal-50  rounded-xl ">
+  <div class="w-1/2 mt-2 px-8 bg-teal-50  rounded-xl ">
     <!-- Header Form: every form have same header -->
     <div>
       <p class="text-blue-900 text-xl py-2 pb-4">
