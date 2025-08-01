@@ -145,8 +145,8 @@ const isShowForm = () => {
   align-items: top;
   transition: 10s ease-in-out;
   backdrop-filter: blur(5px);
+  background-color: rgba(229, 229, 229, 0.61);
 }
-  /* background-color: rgba(229, 229, 229, 0.61); */
 
 .slide-fade-enter-active {
   transition: all 0.8s ease-out;
