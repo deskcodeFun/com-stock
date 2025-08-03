@@ -1,9 +1,9 @@
 <template>
-  <ComputerTotalCard />
-  <ComputerOffice />
+  <StockTotal />
+  <StockOffice />
 </template>
 
 <script setup>
-import ComputerOffice from '@/components/ComputerOffice.vue'
-import ComputerTotalCard from '@/components/ComputerTotalCard.vue'
+import StockOffice from '@/components/StockOffice.vue'
+import StockTotal from '@/components/StockTotal.vue'
 </script>

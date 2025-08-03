@@ -33,10 +33,12 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useComputerCountStore } from '@/stores/computerCount'
+// import { useComputerCountStore } from '@/stores/computerCount'
+import { useStock } from '@/stores/stock'
 import { useOfficeStore} from '@/stores/office'
 import ComputerCard from '@/components/ComputerCard.vue'
-const store = useComputerCountStore()
+// const store = useComputerCountStore()
+const store = useStock()
 const officeName = useOfficeStore()
 const router = useRouter()
 const route = useRoute()

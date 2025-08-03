@@ -1,5 +1,5 @@
 <template>
-  <main class="m-4 w-fit" id="mainApp">
+  <main class="my-2 mx-8 w-auto" id="mainApp">
     <TheTopbar />
     <RouterView />
   </main>
