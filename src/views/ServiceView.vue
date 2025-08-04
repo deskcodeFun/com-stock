@@ -2,6 +2,10 @@
   <!-- Modal show detail of service 
        
   -->
+  <div>
+
+    <p>this is serviceLog:{{ store.serviceDetail }}</p>
+  </div>
   <Transition name="slide-fade">
     <Teleport to="body">
       <div v-if="showForm" class="modal" @click.self="showForm = false">
@@ -94,13 +98,16 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useService } from '@/stores/service.js'
+import { useComputerLogStore } from '@/stores/computerLog.js'
 
 import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
 
 
-const store = useService()
+const store = useComputerLogStore()
+console.log('service log: ', store.serviceLog)
+
+
 // store.serviceStore
 
 const getList = (list) => {

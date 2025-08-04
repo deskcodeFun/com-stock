@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabaseClient'
 import { useToast } from 'vue-toastification'
 
-export const useService = defineStore('service', () => {
+export const useServiceLog = defineStore('service_log', () => {
   const toast = useToast()
   const serviceLog  = ref()
   const serviceDetail = ref()
@@ -12,13 +12,13 @@ export const useService = defineStore('service', () => {
   async function fetchService() {
     try {
       const { data } = await supabase
-        .from('service')
-        .select(`*`)
+        .from('service_log')
+        .select(`*, computer(*, ...staff!inner(*))`)
         toast.success('Fetch Computer_UPDATE Success', {
           timeout: 1000,
       })
       // const { data } = await supabase
-      //   .from('service')
+      //   .from('serviceLog')
       //   .select(`*, computer(*, ...staff!inner(*))`)
       //   toast.success('Fetch Computer_UPDATE Success', {
       //     timeout: 1000,
@@ -37,7 +37,7 @@ export const useService = defineStore('service', () => {
     if (paramId !== '') {
       try {
         const { data, error } = await supabase
-          .from('service')
+          .from('service_log')
           .select('*')
           .eq('computer_id', paramId)
 
@@ -61,7 +61,7 @@ export const useService = defineStore('service', () => {
   async function updateServiceState(list, itemID) {
     try {
       const { data, error } = await supabase
-        .from('service')
+        .from('service_log')
         .update({ state: list })
         .eq('id', itemID)
     } catch (error) {
