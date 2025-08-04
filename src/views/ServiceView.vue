@@ -93,19 +93,21 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
-import { useComputerLogStore } from '@/stores/computerLog.js'
+import { ref } from 'vue'
+import { useService } from '@/stores/service.js'
 
 import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
-import BaseButton from '@/components/BaseButton.vue'
 
-const store = useComputerLogStore()
+
+const store = useService()
+// store.serviceStore
 
 const getList = (list) => {
-  if (store.computerLog) {
+  if (store.service) {
     // Check if store.computerLog is defined
-    return store.computerLog.filter((item) => item.state == list)
+    
+    return store.service.filter((item) => item.state == list)
   }
   return [] // Return an empty array if undefined
 }
@@ -118,9 +120,9 @@ const startDrag = (event, item) => {
 }
 const onDrop = (event, list) => {
   const itemID = event.dataTransfer.getData('itemID')
-  const item = store.computerLog.find((item) => item.id == itemID)
+  const item = store.service.find((item) => item.id == itemID)
 
-  store.updateComputerLog(list, itemID)
+  store.updateServiceState(list, itemID)
   // console.log('update state onDrop', store.computerLog)
   item.state = list
   // item.state = store.updateComputerLog(list, itemID)

@@ -88,7 +88,7 @@ export const useStock = defineStore('stock', () => {
     isLoading.value = false
   }
 
-  fetchAllComputer()
+  fetchAllComputer() 
   fetchCountUseComputers()
   getOfficeComputers()
   getComputerDetail()

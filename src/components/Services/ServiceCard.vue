@@ -46,6 +46,18 @@
         {{ props.item.detail }}
       </span>
     </p>
+    <p class="text-gray-500 text-sm">
+      Application :
+      <span class="px-2 text-black text-md text-wrap">
+        {{ props.item.application }}
+      </span>
+    </p>
+    <p class="text-gray-500 text-sm">
+      Map Drive :
+      <span class="px-2 text-black text-md text-wrap">
+        {{ props.item.map_drive }}
+      </span>
+    </p>
   </div>
 </template>
 

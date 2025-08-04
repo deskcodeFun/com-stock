@@ -3,9 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 
 import NotFoundView from '../views/NotFoundView.vue'
-import ItServicesView from '@/views/ItServicesView.vue'
 import ComputerView from '@/views/ComputerView.vue'
 import ComputerAddNew from '@/components/ComputerAddNew.vue'
+import ServiceView from '@/views/ServiceView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,9 +24,9 @@ const router = createRouter({
 
     {
       path: '/services',
-      name: 'it-services',
+      name: 'service',
 
-      component: ItServicesView,
+      component: ServiceView,
     },
     {
       path: '/add',
