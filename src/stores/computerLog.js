@@ -7,20 +7,21 @@ export const useComputerLogStore = defineStore('computerLog', () => {
   const toast = useToast()
   const computerLog = ref()
   const computerLogDetail = ref()
+  const computerDetail = ref()
 
   let isLoading = ref(true)
 
-  // .select('*,...computer!inner( asset_tag,user_id )')
   async function fetchComputerLog() {
     try {
       const { data } = await supabase
         .from('computer_update')
-        .select(`*, computer(*, ...staff!inner(*))`)
+        .select('*,...computer!inner( asset_tag,user_id )')
+
       toast.success('Fetch Computer_UPDATE Success', {
         timeout: 1000,
       })
       computerLog.value = data
-     
+      console.log('computerLog in store:', computerLog)
     } catch (error) {
       console.error('Fetch Computer Log error:', error)
     } finally {
@@ -38,8 +39,8 @@ export const useComputerLogStore = defineStore('computerLog', () => {
         toast.success('Fetch getComputerLog Success', {
           timeout: 2000,
         })
-        computerLogDetail.value = data
-        
+        computerDetail.value = data
+        console.log('computerLogDetail in store', computerDetail)
       } catch (error) {
         console.error('Fetch Computer Log error:', error)
       } finally {

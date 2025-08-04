@@ -45,5 +45,5 @@ import { XMarkIcon,PencilSquareIcon,TrashIcon } from '@heroicons/vue/24/outline'
 
 // const emit = defineEmits('open')
 const props = defineProps({ itemDetail: Object })
-console.log('item is', props.itemDetail)
+
 </script>

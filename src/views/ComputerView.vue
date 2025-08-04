@@ -163,14 +163,14 @@
 
   <div class="ml-8 my-8 text-xl text-blue-900">
     Computer Record
-    <div v-if="log.computerLogDetail">
+    <div v-if="log.service">
       <table class="w-1/2 mt-4">
         <tbody>
           <tr>
             <th class="text-left p-1 border-2 border-gray-200">Date</th>
             <th class="text-left p-1 border-2 border-gray-200">Detail</th>
           </tr>
-          <tr v-for="log in log.computerLogDetail">
+          <tr v-for="log in store.computerDetail">
             <td class="text-lg py-2 pl-1 pr-8 border-2 border-gray-200">
               {{ log.create_at }}
             </td>
@@ -190,11 +190,11 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { useComputerCountStore } from '@/stores/computerCount'
+import { useStock } from '@/stores/stock'
 import { useComputerLogStore } from '@/stores/computerLog'
 import BaseButtonBack from '@/components/BaseButtonBack.vue'
 
-const store = useComputerCountStore()
+const store = useStock()
 const log = useComputerLogStore()
 const route = useRoute()
 let paramId = route.params.id
