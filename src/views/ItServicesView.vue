@@ -4,7 +4,7 @@
   -->
   <Transition name="slide-fade">
     <Teleport to="body">
-      <div v-if="showForm" class="modal " @click.self="showForm=false">
+      <div v-if="showForm" class="modal" @click.self="showForm = false">
         <ServiceForm @toggle-showForm="showForm = false" class="overflow-scroll" />
       </div>
     </Teleport>
@@ -15,13 +15,15 @@
     <!-- Drop zone 1 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl md:py-2 md:mb-2">
       <div class="mb-2 mx-4 pb-2 border-2 border-blue-800 rounded-2xl text-xl text-blue-800">
-        <p class="text-center">Back Log
-        <button 
-          type="button" 
-          @click="isShowForm" 
-          class="mt-0.5 mr-0.5 text-2xl font-bold text-blue-900 w-8 h-8 rounded-full bg-gray-50 hover:bg-sky-200 float-end"
-          >+
-        </button>
+        <p class="text-center">
+          Back Log
+          <button
+            type="button"
+            @click="isShowForm"
+            class="mt-0.5 mr-0.5 text-2xl font-bold text-blue-900 w-8 h-8 rounded-full bg-gray-50 hover:bg-sky-200 float-end"
+          >
+            +
+          </button>
         </p>
       </div>
       <div
@@ -145,9 +147,8 @@ const isShowForm = () => {
   align-items: top;
   transition: 10s ease-in-out;
   backdrop-filter: blur(4px);
-  /* background-color: rgba(229, 229, 229, 0.61); */
-  background: #57EB94;
-background: linear-gradient(180deg, rgba(87, 176, 235, 0.15) 50%, rgba(243, 243, 237, .1) 100%);
+  background: #57eb94;
+  background: linear-gradient(180deg, rgba(87, 176, 235, 0.15) 50%, rgba(243, 243, 237, 0.1) 100%);
 }
 
 .slide-fade-enter-active {
