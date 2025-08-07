@@ -134,37 +134,3 @@ const isShowForm = () => {
   return (showForm.value = !showForm.value)
 }
 </script>
-
-<style scoped>
-.hide-scroll::-webkit-scrollbar {
-  display: none;
-}
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: right;
-  align-items: top;
-  transition: 10s ease-in-out;
-  backdrop-filter: blur(4px);
-  background: #57eb94;
-  background: linear-gradient(180deg, rgba(87, 176, 235, 0.15) 50%, rgba(243, 243, 237, 0.1) 100%);
-}
-
-.slide-fade-enter-active {
-  transition: all 0.8s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
-}
-</style>
