@@ -1,10 +1,6 @@
 <template>
-  <!-- Modal show detail of service 
-       
-  -->
   <div>
-
-    <p>this is serviceLog:{{ store.serviceDetail }}</p>
+    <!-- <p>this is serviceLog:{{ store.serviceLog }}</p> -->
   </div>
   <Transition name="slide-fade">
     <Teleport to="body">
@@ -18,7 +14,7 @@
   <div class="relative mx-1 md:mx-8 px-1 md:px-8 mt-4 flex flex-col md:flex-row justify-center">
     <!-- Drop zone 1 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl md:py-2 md:mb-2">
-      <div class="mb-2 mx-4 pb-2 border-2 border-blue-800 rounded-2xl text-xl text-blue-800">
+      <div class="mb-2 mx-4 p-2 border-2 border-blue-800 rounded-md text-xl text-blue-800">
         <p class="text-center">
           Back Log
           <button
@@ -48,11 +44,11 @@
     </div>
     <!-- Drop zone 2 -->
     <div class="w-full md:w-1/3 bg-white rounded-2xl py-2 mb-2">
-      <p
-        class="mb-2 mx-4 pb-2 border-2 border-red-800 rounded-2xl text-center text-xl text-blue-800"
-      >
-        On Process
-      </p>
+      <div class="mb-2 mx-4 p-2 border-2 border-red-800 rounded-md text-xl text-red-800">
+        <p class="text-center">
+          On Process
+        </p>
+      </div>
       <div
         @drop="onDrop($event, 2)"
         @dragenter.prvent
@@ -97,24 +93,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref,} from 'vue'
 import { useServiceLog } from '@/stores/service_log.js'
 
 import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
 
-
 const store = useServiceLog()
 console.log('service log: ', store.serviceLog)
-
 
 // store.serviceStore
 
 const getList = (list) => {
-  if (store.service) {
+  if (store.serviceLog) {
     // Check if store.computerLog is defined
-    
-    return store.service.filter((item) => item.state == list)
+
+    return store.serviceLog.filter((item) => item.state == list)
   }
   return [] // Return an empty array if undefined
 }
@@ -127,7 +121,7 @@ const startDrag = (event, item) => {
 }
 const onDrop = (event, list) => {
   const itemID = event.dataTransfer.getData('itemID')
-  const item = store.service.find((item) => item.id == itemID)
+  const item = store.serviceLog.find((item) => item.id == itemID)
 
   store.updateServiceState(list, itemID)
   // console.log('update state onDrop', store.computerLog)
