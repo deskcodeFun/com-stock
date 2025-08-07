@@ -163,7 +163,7 @@
 
   <div class="ml-8 my-8 text-xl text-blue-900">
     Computer Record
-    <div v-if="log.serviceDetail[0]">
+    <div v-if="log.serviceDetail">
       <table class="w-1/2 mt-4">
         <tbody>
           <tr>
