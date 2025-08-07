@@ -24,7 +24,7 @@ export const useServiceLog = defineStore('service_log', () => {
       //     timeout: 1000,
       // })
       serviceLog.value = data
-      console.log('service in store :', serviceLog)
+      // console.log('service in store :', serviceLog)
      
     } catch (error) {
       console.error('Fetch Service Store error:', error)
@@ -45,8 +45,8 @@ export const useServiceLog = defineStore('service_log', () => {
           timeout: 2000,
         })
         serviceDetail.value = data
-        console.log('Servie detail :', serviceDetail)
-        console.log('param id: ',paramId)
+        // console.log('Servie detail :', serviceDetail)
+        // console.log('param id: ',paramId)
         
       } catch (error) {
         console.error('Fetch service detail error:', error)

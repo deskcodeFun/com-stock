@@ -100,7 +100,7 @@ import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
 
 const store = useServiceLog()
-console.log('service log: ', store.serviceLog)
+// console.log('service log: ', store.serviceLog)
 
 // store.serviceStore
 
