@@ -117,7 +117,7 @@ const startDrag = (event, item) => {
   event.dataTransfer.dropEffect = 'move'
   event.dataTransfer.effectAllowed = 'move'
   event.dataTransfer.setData('itemID', item.id)
-  console.log('startDrag', item)
+  // console.log('startDrag', item)
 }
 const onDrop = (event, list) => {
   const itemID = event.dataTransfer.getData('itemID')

@@ -30,7 +30,7 @@
       <p class="text-gray-500 text-sm">
         Computer :
         <span class="px-2 text-black text-md">
-          {{ props.item.computer.asset_tag }}
+          {{ props.item.stock.asset_tag }}
         </span>
       </p>
       <p class="text-gray-500 text-sm">
@@ -71,6 +71,6 @@ const props = defineProps({
 })
 
 const fullName = computed(() => {
-  return props.item.computer.fname + ' ' + props.item.computer.lname.substring(0, 1)
+  return props.item.stock.fname + ' ' + props.item.stock.lname.substring(0, 1)
 })
 </script>

@@ -13,7 +13,7 @@ export const useServiceLog = defineStore('service_log', () => {
     try {
       const { data } = await supabase
         .from('service_log')
-        .select(`*, computer(*, ...staff!inner(*))`)
+        .select(`*, stock(*, ...staff!inner(*))`)
         toast.success('Fetch Computer_UPDATE Success', {
           timeout: 1000,
       })

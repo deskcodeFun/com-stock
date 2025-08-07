@@ -17,7 +17,7 @@ export const useStock = defineStore('stock', () => {
   // totalComputer is counting all row in computer table
   async function fetchAllComputer() {
     try {
-      const { data, error } = await supabase.from('computer').select('*', { count: 'exact' })
+      const { data, error } = await supabase.from('stock').select('*', { count: 'exact' })
       computers.value = data
       totalComputer.value = data.length
       toast.success('Fetch all Computer Success', {
@@ -34,7 +34,7 @@ export const useStock = defineStore('stock', () => {
 
   async function fetchCountUseComputers() {
     const { data, error } = await supabase
-      .from('computer')
+      .from('stock')
       .select('user_id', { count: 'exact' })
       .not('user_id', 'is', null)
     if (!error) {
@@ -47,7 +47,7 @@ export const useStock = defineStore('stock', () => {
     if (officeID !== undefined && officeID !== '0') {
       try {
         const { data } = await supabase
-          .from('computer')
+          .from('stock')
           .select('*,staff(*)')
           .eq('office_id', officeID)
           .order('asset_tag', { nullsFirst: false })
@@ -60,7 +60,7 @@ export const useStock = defineStore('stock', () => {
     } else {
       try {
         const { data } = await supabase
-          .from('computer')
+          .from('stock')
           .select('*,staff(*)')
           .order('user_id', { nullsFirst: true })
         officeComputers.value = data
@@ -75,9 +75,9 @@ export const useStock = defineStore('stock', () => {
     let computerId = paramId
     if (computerId !== undefined) {
       try {
-        // const { data } = await supabase.from('computer').select('*,staff(*)').eq('id', computerId)
+        // const { data } = await supabase.from('stock').select('*,staff(*)').eq('id', computerId)
         const { data } = await supabase
-          .from('computer')
+          .from('stock')
           .select(`*, staff(*, ...office!inner(*))`)
           .eq('id', computerId)
         computerDetail.value = data
