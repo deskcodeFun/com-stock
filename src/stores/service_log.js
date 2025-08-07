@@ -32,7 +32,7 @@ export const useServiceLog = defineStore('service_log', () => {
       isLoading = false
     }
   }
-  async function getService(paramId) {
+  async function getServiceDetail(paramId) {
     
     if (paramId !== '') {
       try {
@@ -72,13 +72,13 @@ export const useServiceLog = defineStore('service_log', () => {
   }
   fetchService()
   updateServiceState()
-  //  getService()
+  //  getServiceDetail()
   return {
     serviceLog,
     serviceDetail,
 
     fetchService,
-    getService,
+    getServiceDetail,
     updateServiceState,
   }
 })

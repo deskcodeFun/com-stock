@@ -31,7 +31,6 @@ const router = createRouter({
     {
       path: '/add',
       name: 'computer-add',
-
       component: ComputerAddNew,
     },
     {

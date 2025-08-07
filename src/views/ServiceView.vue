@@ -98,13 +98,13 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useComputerLogStore } from '@/stores/computerLog.js'
+import { useServiceLog } from '@/stores/service_log.js'
 
 import ServiceForm from '@/components/Services/ServiceForm.vue'
 import ServiceCard from '@/components/Services/ServiceCard.vue'
 
 
-const store = useComputerLogStore()
+const store = useServiceLog()
 console.log('service log: ', store.serviceLog)
 
 
