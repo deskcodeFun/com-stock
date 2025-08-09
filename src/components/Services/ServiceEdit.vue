@@ -9,13 +9,13 @@
 
     <div class="flex flex-row justify-between mr-4">
       <p>Appointment date: {{ props.itemDetail.appointment }}</p>
-      <p>asset tag: {{ props.itemDetail.computer.asset_tag }}</p>
+      <p>asset tag: {{ props.itemDetail.stock.asset_tag }}</p>
     </div>
     <div class="mt-1 flex flex-row align-bottom">
       <p>User Name:</p>
 
       <p class="font-bold text-md ml-4 text-blue-900">
-        {{ props.itemDetail.computer.fname + ' ' + props.itemDetail.computer.lname }}
+        {{ props.itemDetail.stock.fname + ' ' + props.itemDetail.stock.lname }}
       </p>
     </div>
     <p class="flex flex-row text-wrap text-sm text-blue-900 font-bold mt-4 mb-1 justify-between">

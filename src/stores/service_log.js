@@ -2,29 +2,17 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabaseClient'
 
-
 export const useServiceLog = defineStore('service_log', () => {
-  const serviceLog  = ref()
+  const serviceLog = ref()
   const serviceDetail = ref()
   let isLoading = ref(true)
 
   async function fetchService() {
     try {
-      const { data } = await supabase
-        .from('service_log')
-        .select(`*, stock(*, ...staff!inner(*))`)
-        toast.success('Fetch Computer_UPDATE Success', {
-          timeout: 1000,
-      })
-      // const { data } = await supabase
-      //   .from('serviceLog')
-      //   .select(`*, computer(*, ...staff!inner(*))`)
-      //   toast.success('Fetch Computer_UPDATE Success', {
-      //     timeout: 1000,
-      // })
+      const { data } = await supabase.from('service_log').select(`*, stock(*, ...staff!inner(*))`)
+
       serviceLog.value = data
       // console.log('service in store :', serviceLog)
-     
     } catch (error) {
       console.error('Fetch Service Store error:', error)
     } finally {
@@ -32,7 +20,6 @@ export const useServiceLog = defineStore('service_log', () => {
     }
   }
   async function getServiceDetail(paramId) {
-    
     if (paramId !== '') {
       try {
         const { data, error } = await supabase
@@ -42,7 +29,6 @@ export const useServiceLog = defineStore('service_log', () => {
         serviceDetail.value = data
         // console.log('Servie detail :', serviceDetail)
         // console.log('param id: ',paramId)
-        
       } catch (error) {
         console.error('Fetch service detail error:', error)
       } finally {
