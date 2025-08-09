@@ -1,27 +1,24 @@
-import { supabase } from "@/lib/supabaseClient";
-import { defineStore } from "pinia";
-import { useToast } from "vue-toastification";
-import { ref } from "vue";
+import { supabase } from '@/lib/supabaseClient'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
-export const useOfficeStore = defineStore('officeStore',()=>{
-  const office =ref()
-  const isLoading =ref(true)
-  const toast = useToast()
+export const useOfficeStore = defineStore('officeStore', () => {
+  const office = ref()
+  const isLoading = ref(true)
 
-  async function fetchAllOffice(){
+  async function fetchAllOffice() {
     try {
-      const {data,error} = await supabase.from('office').select('*')
-      office.value =data
+      const { data, error } = await supabase.from('office').select('*')
+      office.value = data
     } catch (error) {
-      toast.error('Error: Can not fetch office store',error)
-    } finally{
-      isLoading.value=false
+    } finally {
+      isLoading.value = false
     }
   }
   fetchAllOffice()
   return {
-    office, 
+    office,
     isLoading,
-    fetchAllOffice
+    fetchAllOffice,
   }
 })

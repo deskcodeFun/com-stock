@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabaseClient'
-import { useToast } from 'vue-toastification'
+
 
 export const useStock = defineStore('stock', () => {
   const totalComputer = ref(0)
@@ -9,7 +9,7 @@ export const useStock = defineStore('stock', () => {
   const computers = ref()
   const officeComputers = ref()
   const computerDetail = ref()
-  const toast = useToast()
+  
   let isLoading = ref(true)
 
   // this action is fetch all computer table
@@ -20,11 +20,9 @@ export const useStock = defineStore('stock', () => {
       const { data, error } = await supabase.from('stock').select('*', { count: 'exact' })
       computers.value = data
       totalComputer.value = data.length
-      toast.success('Fetch all Computer Success', {
-        timeout: 2000,
-      })
+      
     } catch (error) {
-      toast.error('Fetch all Computer FAIL', error)
+      
     } finally {
       isLoading.value = false
     }

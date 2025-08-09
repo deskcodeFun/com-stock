@@ -1,10 +1,9 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabaseClient'
-import { useToast } from 'vue-toastification'
+
 
 export const useServiceLog = defineStore('service_log', () => {
-  const toast = useToast()
   const serviceLog  = ref()
   const serviceDetail = ref()
   let isLoading = ref(true)
@@ -40,10 +39,6 @@ export const useServiceLog = defineStore('service_log', () => {
           .from('service_log')
           .select('*')
           .eq('computer_id', paramId)
-
-        toast.success('Fetch service detail Success', {
-          timeout: 2000,
-        })
         serviceDetail.value = data
         // console.log('Servie detail :', serviceDetail)
         // console.log('param id: ',paramId)
