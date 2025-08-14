@@ -1,7 +1,10 @@
 <template>
   <main class="my-2 mx-8 w-auto" id="mainApp">
     <TheTopbar />
-    <RouterView />
+    <div class="bg-sky-50/30">
+      <RouterView />
+
+    </div>
   </main>
 </template>
 

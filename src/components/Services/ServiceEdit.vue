@@ -47,3 +47,5 @@ import { XMarkIcon,PencilSquareIcon,TrashIcon } from '@heroicons/vue/24/outline'
 const props = defineProps({ itemDetail: Object })
 
 </script>
+
+

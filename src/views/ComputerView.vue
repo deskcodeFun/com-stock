@@ -19,13 +19,13 @@
               alt="computer image"
             />
           </div>
-          <div v-else>
+          <!-- <div v-else>
             <img
               class="h-50px mx-auto w-auto mb-4 px-4"
               src="\src\assets\images\lenovo.png"
               alt="computer image"
-            />
-          </div>
+            /> 
+          </div>-->
           <table>
             <tbody class="align-baseline">
               <tr>

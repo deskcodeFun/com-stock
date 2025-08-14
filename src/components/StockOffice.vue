@@ -1,18 +1,29 @@
 <template>
-  <div class="flex flex-row my-4">
-    <p class="text-sm md:text-lg text-gray-500 mx-8">Filter by :</p>
-    <select
-      class="px-8 py-1 w-fit border-1 border-blue-300"
-      @change="handleChange"
-      v-model="officeFilter"
-    >
-      <option value="" disabled>Select BU</option>
-      <option v-for="officeName in officeName.office" :key="officeName.id" :value="officeName.id">
-        {{ officeName.short_name }}
-      </option>
-      <option value="0">All</option>
-     
-    </select>
+  <div class="flex flex-row my-4 justify-between">
+    <p class="text-sm md:text-lg text-gray-500 mx-8">
+      Filter by :
+      <span>
+        <select
+          class="px-8 py-1 w-fit border-1 border-blue-300"
+          @change="handleChange"
+          v-model="officeFilter"
+        >
+          <option value="" disabled>Select BU</option>
+          <option
+            v-for="officeName in officeName.office"
+            :key="officeName.id"
+            :value="officeName.id"
+          >
+            {{ officeName.short_name }}
+          </option>
+          <option value="0">All</option>
+        </select>
+      </span>
+    </p>
+    <div class="inline-flex flex-row -mt-2">
+      <ListBulletIcon  class="h-10 w-10 text-gray-500" />
+      
+    </div>
   </div>
   <!--  Show data -->
   <div v-if="store.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
@@ -22,22 +33,17 @@
         <ComputerCard :computer="computer" />
       </li>
     </ul>
-    <!-- <ComputerCard
-      v-for="computer in store.officeComputers"
-      :key="computer.id"
-      :computer="computer"
-    /> -->
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-// import { useComputerCountStore } from '@/stores/computerCount'
 import { useStock } from '@/stores/stock'
-import { useOfficeStore} from '@/stores/office'
+import { useOfficeStore } from '@/stores/office'
 import ComputerCard from '@/components/ComputerCard.vue'
-// const store = useComputerCountStore()
+import { ListBulletIcon  } from '@heroicons/vue/24/outline'
+
 const store = useStock()
 const officeName = useOfficeStore()
 const router = useRouter()

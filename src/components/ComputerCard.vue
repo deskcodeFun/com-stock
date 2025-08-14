@@ -7,9 +7,9 @@
       <div v-if="computer.image">
         <img class="h-[110px]  mx-auto w-auto mb-4" :src="computer.image[0]" alt="computer image" />
       </div>
-      <div v-else>
+      <!-- <div v-else>
         <img class="mx-auto mb-4" src="\src\assets\images\lenovo.png" alt="computer image" />
-      </div>
+      </div> -->
       <table>
         <tbody>
           <tr>
