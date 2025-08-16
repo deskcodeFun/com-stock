@@ -30,11 +30,11 @@ provideToast()
   display: flex;
   justify-content: right;
   align-items: top;
-  transition: 10s ease-in-out;
   backdrop-filter: blur(4px);
-  background: #57eb94;
-  background: linear-gradient(180deg, rgba(87, 176, 235, 0.15) 50%, rgba(243, 243, 237, 0.1) 100%);
+  /* background: #57eb94; */
+  /* background: linear-gradient(180deg, rgba(87, 176, 235, 0.15) 50%, rgba(243, 243, 237, 0.1) 100%); */
 }
+/* transition: 10s ease-in-out; */
 
 .slide-fade-enter-active {
   transition: all 0.8s ease-out;
