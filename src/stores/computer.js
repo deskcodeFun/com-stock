@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabaseClient'
 
 
-export const useStock = defineStore('stock', () => {
-  const totalComputer = ref(0)
+export const useComputer = defineStore('computer', () => {
+  const computerTotal = ref(0)
   const onUseComputer = ref(0)
   const computers = ref()
   const officeComputers = ref()
@@ -14,12 +14,12 @@ export const useStock = defineStore('stock', () => {
 
   // this action is fetch all computer table
   // computers is object contain computer table
-  // totalComputer is counting all row in computer table
+  // computerTotal is counting all row in computer table
   async function fetchAllComputer() {
     try {
-      const { data, error } = await supabase.from('stock').select('*', { count: 'exact' })
+      const { data, error } = await supabase.from('computer').select('*', { count: 'exact' })
       computers.value = data
-      totalComputer.value = data.length
+      computerTotal.value = data.length
       
     } catch (error) {
       
@@ -32,7 +32,7 @@ export const useStock = defineStore('stock', () => {
 
   async function fetchCountUseComputers() {
     const { data, error } = await supabase
-      .from('stock')
+      .from('computer')
       .select('user_id', { count: 'exact' })
       .not('user_id', 'is', null)
     if (!error) {
@@ -45,7 +45,7 @@ export const useStock = defineStore('stock', () => {
     if (officeID !== undefined && officeID !== '0') {
       try {
         const { data } = await supabase
-          .from('stock')
+          .from('computer')
           .select('*,staff(*)')
           .eq('office_id', officeID)
           .order('asset_tag', { nullsFirst: false })
@@ -58,7 +58,7 @@ export const useStock = defineStore('stock', () => {
     } else {
       try {
         const { data } = await supabase
-          .from('stock')
+          .from('computer')
           .select('*,staff(*)')
           .order('user_id', { nullsFirst: true })
         officeComputers.value = data
@@ -75,7 +75,7 @@ export const useStock = defineStore('stock', () => {
       try {
         // const { data } = await supabase.from('stock').select('*,staff(*)').eq('id', computerId)
         const { data } = await supabase
-          .from('stock')
+          .from('computer')
           .select(`*, staff(*, ...office!inner(*))`)
           .eq('id', computerId)
         computerDetail.value = data
@@ -92,7 +92,7 @@ export const useStock = defineStore('stock', () => {
   getComputerDetail()
 
   return {
-    totalComputer,
+    computerTotal,
     onUseComputer,
     computers,
     officeComputers,

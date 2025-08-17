@@ -4,15 +4,15 @@
     <div
       class="w-3xs flex flex-col text-md md:text-xl p-2 m-1 md:p-4 md:m-4 rounded-2xl bg-sky-50/30"
     >
-      <p>Total Computer{{ ' : ' + stock.totalComputer }}</p>
+      <p>Total Computer{{ ' : ' + computer.computerTotal }}</p>
     </div>
     <!-- On use -->
     <div
       class="w-3xs flex flex-col text-md md:text-xl p-2 m-1 md:p-4 md:m-4 rounded-2xl bg-sky-50/30"
     >
-      <p>On Use{{ ' : ' + stock.onUseComputer }}</p>
+      <p>On Use{{ ' : ' + computer.onUseComputer }}</p>
     </div>
-    <!-- on stock -->
+    <!-- on stock computer -->
     <div
       class="w-3xs flex flex-col text-md md:text-xl p-2 m-1 md:p-4 md:m-4 rounded-2xl bg-sky-50/30"
     >
@@ -22,10 +22,10 @@
 </template>
 
 <script setup>
-import { useStock } from '@/stores/stock'
+import { useComputer } from '@/stores/computer'
 import { computed } from 'vue'
-const stock = useStock()
+const computer = useComputer()
 const onStock = computed(() => {
-  return stock.totalComputer - stock.onUseComputer
+  return computer.computerTotal - computer.onUseComputer
 })
 </script>

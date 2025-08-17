@@ -1,9 +1,11 @@
 <template>
-  <StockTotal />
-  <StockOffice />
+  <ComputerTotal />
+  <ComputerGet />
 </template>
 
 <script setup>
-import StockOffice from '@/components/StockOffice.vue'
-import StockTotal from '@/components/StockTotal.vue'
+
+import ComputerGet from '@/components/computer/ComputerGet.vue';
+import ComputerTotal from '@/components/computer/ComputerTotal.vue';
+
 </script>

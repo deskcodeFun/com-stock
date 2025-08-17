@@ -26,10 +26,10 @@
     </div>
   </div>
   <!--  Show data -->
-  <div v-if="store.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
+  <div v-if="computer.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
   <div v-else>
     <ul class="bg-sky-50/30 flex flex-row flex-wrap justify-center md:justify-start">
-      <li v-for="computer in store.officeComputers" :key="computer.id">
+      <li v-for="computer in computer.officeComputers" :key="computer.id">
         <ComputerCard :computer="computer" />
       </li>
     </ul>
@@ -39,12 +39,12 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useStock } from '@/stores/stock'
+import { useComputer } from '@/stores/computer'
 import { useOfficeStore } from '@/stores/office'
 import ComputerCard from '@/components/ComputerCard.vue'
 import { ListBulletIcon  } from '@heroicons/vue/24/outline'
 
-const store = useStock()
+const computer = useComputer()
 const officeName = useOfficeStore()
 const router = useRouter()
 const route = useRoute()
@@ -53,7 +53,7 @@ const officeFilter = ref('')
 
 watch(officeFilter, () => {
   if (officeFilter.value !== undefined) {
-    store.getOfficeComputers(officeFilter.value)
+    computer.getOfficeComputers(officeFilter.value)
   }
   router.push('/')
 })

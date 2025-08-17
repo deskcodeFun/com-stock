@@ -108,6 +108,7 @@
       </div>
       <div v-else></div>
     </div>
+    <!-- show user info -->
     <!-- Check user_id is not null -->
     <div v-if="store.computerDetail && store.computerDetail[0].staff">
       <div class="text-xl ml-14 text-blue-900">User infomation</div>
@@ -160,7 +161,7 @@
     </div>
     <div v-else></div>
   </main>
-
+  <!-- show computer log -->
   <div class="ml-8 my-8 text-xl text-blue-900">
     Computer Record
     <div v-if="log.serviceDetail">
@@ -190,11 +191,11 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { useStock } from '@/stores/stock'
+import { useComputer } from '@/stores/computer'
 import { useServiceLog } from '@/stores/service_log'
 import BaseButtonBack from '@/components/BaseButtonBack.vue'
 
-const store = useStock()
+const store = useComputer()
 const log = useServiceLog()
 const route = useRoute()
 let paramId = route.params.id

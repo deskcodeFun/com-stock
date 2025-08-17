@@ -47,7 +47,7 @@ const navOpen = ref(false)
   <!-- class="w-auto text-black mx-2 my-4 p-2 border-1 border-blue-950 rounded-lg hover:bg-sky-100" -->
   <Transition name="slide-fade">
     <Teleport to="body">
-      <div v-if="navOpen" class="modal mt-8">
+      <div v-if="navOpen" class="modal mt-8" @click.self="navOpen=false">
         <nav class="flex flex-col w-1/2 bg-green-50">
           <RouterLink
             to="/"
