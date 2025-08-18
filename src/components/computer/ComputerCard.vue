@@ -4,12 +4,11 @@
       class="w-[280px] bg-white border-1 border-gray-200 rounded-2xl m-4 p-4  hover:shadow-2xl hover:transition-y-1 hover:scale-101"
       @click="router.push(`/computer/${computer.id}`)"
     >
+      <!-- Show image default -->
       <div v-if="computer.image">
         <img class="h-[110px]  mx-auto w-auto mb-4" :src="computer.image[0]" alt="computer image" />
       </div>
-      <!-- <div v-else>
-        <img class="mx-auto mb-4" src="\src\assets\images\lenovo.png" alt="computer image" />
-      </div> -->
+      <!-- Show data -->
       <table>
         <tbody>
           <tr>
@@ -28,7 +27,7 @@
               <p v-else class="text-red-900 font-bold pl-4">Free</p>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <th class="text-gray-400 text-left text-xs">Brand</th>
             <td class="text-blue-800 pl-4">{{ computer.brand }}</td>
           </tr>
@@ -39,7 +38,7 @@
           <tr>
             <th class="text-gray-400 text-left text-xs">Ram</th>
             <td class="text-blue-800 pl-4">{{ computer.ram.substring(0, 4) }}</td>
-          </tr>
+          </tr> -->
 
           <tr>
             <th class="text-gray-400 text-left text-xs">Serial</th>

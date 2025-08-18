@@ -7,7 +7,7 @@ const navOpen = ref(false)
 </script>
 
 <template>
-  <div class="flex flex-row justify-between md:justify-start md:p-2">
+  <div class="w-auto flex flex-row justify-between mt-4 mb-4 sm:mb-8 md:justify-start md:p-2">
     <p class="ml-1 font-bold text-sm md:text-xl mt-1 text-blue-900 text-shadow-lg">
       Computer Stock
     </p>
@@ -37,7 +37,7 @@ const navOpen = ref(false)
       </nav>
     </div>
     <!-- Mobile NavBar -->
-    <div class="mt-1 mr-1 sm:hidden">
+    <div class="mt-1 sm:hidden">
       <button @click="navOpen = !navOpen">
         <Bars3Icon :class="navOpen ? 'hidden' : ''" class="h-5 w-5 text-gray-500" />
         <XMarkIcon :class="navOpen ? '' : 'hidden'" class="h-5 w-5 text-gray-500" />

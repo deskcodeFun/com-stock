@@ -4,7 +4,7 @@ import AboutView from '../views/AboutView.vue'
 
 import NotFoundView from '../views/NotFoundView.vue'
 import ComputerDetail from '@/components/computer/ComputerDetail.vue'
-import ComputerAddNew from '@/components/ComputerAddNew.vue'
+
 import ServiceView from '@/views/ServiceView.vue'
 
 const router = createRouter({
@@ -28,11 +28,7 @@ const router = createRouter({
 
       component: ServiceView,
     },
-    {
-      path: '/add',
-      name: 'computer-add',
-      component: ComputerAddNew,
-    },
+    
     {
       path: '/computer/:id',
       name: 'computer-detail',

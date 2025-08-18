@@ -1,10 +1,7 @@
 <template>
-  <main class="my-2 mx-8 w-auto" id="mainApp">
-    <TheTopbar />
-    <div class="bg-sky-50/30">
-      <RouterView />
-
-    </div>
+  <main class="w-auto ml-4 sm:ml-8" id="mainApp">
+    <TheTopbar  />
+    <RouterView />
   </main>
 </template>
 
@@ -18,6 +15,7 @@ import 'vue-toastification/dist/index.css'
 provideToast()
 </script>
 <style>
+
 .hide-scroll::-webkit-scrollbar {
   display: none;
 }

@@ -1,22 +1,18 @@
 <template>
   <!-- Total card -->
-  <div class="flex flex-col md:flex-row w-fit">
-    <div
-      class="w-3xs flex flex-col text-md md:text-xl p-2 m-1 md:p-4 md:m-4 rounded-2xl bg-sky-50/30"
-    >
-      <p>Total Computer{{ ' : ' + computer.computerTotal }}</p>
-    </div>
-    <!-- On use -->
-    <div
-      class="w-3xs flex flex-col text-md md:text-xl p-2 m-1 md:p-4 md:m-4 rounded-2xl bg-sky-50/30"
-    >
-      <p>On Use{{ ' : ' + computer.onUseComputer }}</p>
-    </div>
-    <!-- on stock computer -->
-    <div
-      class="w-3xs flex flex-col text-md md:text-xl p-2 m-1 md:p-4 md:m-4 rounded-2xl bg-sky-50/30"
-    >
-      <p>On Stock {{ ' : ' + onStock }}</p>
+  <div class="mb-8">
+    <div class="w-fit flex flex-col text-sm sm:text-xl sm:flex-row">
+      <div class="p-2 rounded-2xl mb-1 sm:mr-4 bg-sky-100/70">
+        <p>Total Computer{{ ' : ' + computer.computerTotal }}</p>
+      </div>
+      <!-- On use -->
+      <div class="p-2 rounded-2xl mb-1 sm:mr-4 bg-sky-100/70">
+        <p>On Use{{ ' : ' + computer.onUseComputer }}</p>
+      </div>
+      <!-- on stock computer -->
+      <div class="p-2 rounded-2xl mb-1 sm:mr-4 bg-sky-100/70">
+        <p>On Stock {{ ' : ' + onStock }}</p>
+      </div>
     </div>
   </div>
 </template>

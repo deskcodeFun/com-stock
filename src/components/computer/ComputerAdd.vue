@@ -1,4 +1,11 @@
-<template>
+<!-- 
+  this is a add new computer form with multi step
+  1-3 for specification
+  4 for user infomation
+  5 add computer image with skip
+  6 show summary and insert new row to database 
+  -->
+  <template>
   <BaseButtonBack />
   <p class="my-4 mx-4 text-2xl font-bold text-blue-900">Add New Computer</p>
   <div class="flex flex-row">
@@ -368,3 +375,5 @@ const addSubmit = async () => {
 </script>
 <!-- lastComputer.value =data -->
 <!-- router.push(`/computer/${data.id}`) -->
+
+

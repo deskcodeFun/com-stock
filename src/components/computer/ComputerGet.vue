@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row my-4 justify-between">
-    <p class="text-sm md:text-lg text-gray-500 mx-8">
+  <div class="flex flex-row justify-between">
+    <p class="text-sm text-gray-500">
       Filter by :
       <span>
         <select
@@ -20,8 +20,8 @@
         </select>
       </span>
     </p>
-    <div class="inline-flex flex-row -mt-2">
-      <ListBulletIcon  class="h-10 w-10 text-gray-500" />
+    <div class="inline-flex flex-row ">
+      <ListBulletIcon  class="h-6 w-6 text-gray-500" />
       
     </div>
   </div>
@@ -41,7 +41,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useComputer } from '@/stores/computer'
 import { useOfficeStore } from '@/stores/office'
-import ComputerCard from '@/components/ComputerCard.vue'
+import ComputerCard from './ComputerCard.vue'
 import { ListBulletIcon  } from '@heroicons/vue/24/outline'
 
 const computer = useComputer()
