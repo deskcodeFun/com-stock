@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row justify-between">
+  <div class="flex flex-row gap-4">
     <p class="text-sm text-gray-500">
       Filter by :
       <span>
@@ -20,17 +20,18 @@
         </select>
       </span>
     </p>
-    <div class="inline-flex flex-row ">
-      <ListBulletIcon  class="h-6 w-6 text-gray-500" />
-      
+    <!-- toggle view from card to table -->
+    <div class="inline-flex flex-row">
+      <ListBulletIcon class="h-6 w-6 text-gray-500" />
     </div>
   </div>
-  <!--  Show data -->
+  <!--  Show data computer -->
   <div v-if="computer.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
   <div v-else>
-    <ul class="bg-sky-50/30 flex flex-row flex-wrap justify-center md:justify-start">
+    <p class="mt-4">Computer</p>
+    <ul class=" bg-sky-50/30 flex flex-row flex-wrap justify-center sm:justify-start">
       <li v-for="computer in computer.officeComputers" :key="computer.id">
-        <ComputerCard :computer="computer" />
+        <ComputerCard :items="computer" />
       </li>
     </ul>
   </div>
@@ -42,7 +43,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { useComputer } from '@/stores/computer'
 import { useOfficeStore } from '@/stores/office'
 import ComputerCard from './ComputerCard.vue'
-import { ListBulletIcon  } from '@heroicons/vue/24/outline'
+import { ListBulletIcon } from '@heroicons/vue/24/outline'
 
 const computer = useComputer()
 const officeName = useOfficeStore()
@@ -53,13 +54,16 @@ const officeFilter = ref('')
 
 watch(officeFilter, () => {
   if (officeFilter.value !== undefined) {
+    // use function from computer store
     computer.getOfficeComputers(officeFilter.value)
   }
   router.push('/')
 })
+
 const handleChange = () => {
   router.push({ query: { officeFilter: officeFilter.value } })
 }
+
 onMounted(() => {
   officeFilter.value = route.query.officeFilter || ''
 })

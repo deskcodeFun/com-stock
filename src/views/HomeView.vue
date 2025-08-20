@@ -1,6 +1,13 @@
 <template>
   <ComputerTotal />
   <ComputerGet />
+  <!-- 
+  <PrinterGet />
+  <PeripheralGet />
+  ...
+  ..
+  -->
+  
 </template>
 
 <script setup>

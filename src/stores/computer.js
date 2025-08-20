@@ -101,7 +101,7 @@ export const useComputer = defineStore('computer', () => {
     fetchAllComputer,
     getOfficeComputers,
     fetchCountUseComputers,
-    getComputerDetail,
-    getOfficeComputers,
+    getComputerDetail
+    
   }
 })
