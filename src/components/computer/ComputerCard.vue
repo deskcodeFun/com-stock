@@ -6,7 +6,7 @@
     >
       <!-- Show image default -->
       <div v-if="items.image">
-        <img class="h-[110px]  mx-auto w-auto mb-4" :src="items.image[0]" alt="items image" />
+        <img class="h-[100px] mx-auto mb-4" :src="items.image[0]" alt="items image" />
       </div>
       <!-- Show data -->
       <table>
@@ -27,7 +27,8 @@
               <p v-else class="text-red-900 font-bold pl-4">Free</p>
             </td>
           </tr>
-          <!-- <tr>
+          <!-- 
+          <tr>
             <th class="text-gray-400 text-left text-xs">Brand</th>
             <td class="text-blue-800 pl-4">{{ items.brand }}</td>
           </tr>
@@ -38,12 +39,12 @@
           <tr>
             <th class="text-gray-400 text-left text-xs">Ram</th>
             <td class="text-blue-800 pl-4">{{ computer.ram.substring(0, 4) }}</td>
-          </tr> -->
-
+          </tr> 
           <tr>
             <th class="text-gray-400 text-left text-xs">Serial</th>
             <td class="text-blue-800 pl-4">{{ items.serial_tag}}</td>
           </tr>
+          -->
         </tbody>
       </table>
     </div>

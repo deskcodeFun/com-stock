@@ -7,7 +7,7 @@ const navOpen = ref(false)
 </script>
 
 <template>
-  <div class="w-auto flex flex-row justify-between mt-4 mb-4 sm:mb-8 md:justify-start md:p-2">
+  <div class="w-auto flex flex-row justify-between mt-4 mb-4 md:justify-start md:p-2">
     <p class="ml-1 font-bold text-sm md:text-xl mt-1 text-blue-900 text-shadow-lg">
       Computer Stock
     </p>

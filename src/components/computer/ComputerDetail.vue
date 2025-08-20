@@ -1,6 +1,6 @@
 <template>
   <BaseButtonBack />
-  <main class="flex flex-col lg:flex-row">
+  <div class="flex flex-col lg:flex-row">
     <!-- Show computer spec -->
     <div class="w-fit flex flex-col flex-wrap justify-between">
       <div class="text-xl ml-4 text-blue-900">Computer Spec</div>
@@ -160,7 +160,7 @@
       </div>
     </div>
     <div v-else></div>
-  </main>
+  </div>
   <!-- show computer log -->
   <div class="ml-8 my-8 text-xl text-blue-900">
     Computer Record
