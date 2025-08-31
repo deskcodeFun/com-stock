@@ -20,10 +20,7 @@
         </select>
       </span>
     </p>
-    <!-- toggle view from card to table -->
-    <div class="inline-flex flex-row">
-      <ListBulletIcon class="h-6 w-6 text-gray-500" />
-    </div>
+   
   </div>
   <!--  Show data computer -->
   <div v-if="computer.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
@@ -43,7 +40,8 @@ import { useRouter, useRoute } from 'vue-router'
 import { useComputer } from '@/stores/computer'
 import { useOfficeStore } from '@/stores/office'
 import ComputerCard from './ComputerCard.vue'
-import { ListBulletIcon } from '@heroicons/vue/24/outline'
+
+
 
 const computer = useComputer()
 const officeName = useOfficeStore()

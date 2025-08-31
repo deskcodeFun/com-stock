@@ -1,21 +1,24 @@
 <template>
   <main class="w-auto ml-4 sm:ml-8" id="mainApp">
     <TheTopbar  />
+    <SwitchView />
     <RouterView />
   </main>
 </template>
 
 <script setup>
+ 
+import SwitchView from './components/computer/SwitchView.vue'
 import { RouterView } from 'vue-router'
 import TheTopbar from '@/components/TheTopbar.vue'
 
-import { provideToast } from 'vue-toastification'
-import 'vue-toastification/dist/index.css'
+// import { provideToast } from 'vue-toastification'
+// import 'vue-toastification/dist/index.css'
 
-provideToast()
+// provideToast()
 </script>
-<style>
 
+<style>
 .hide-scroll::-webkit-scrollbar {
   display: none;
 }
@@ -26,7 +29,7 @@ provideToast()
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: right;
+  justify-content: left;
   align-items: top;
   backdrop-filter: blur(4px);
   /* background: #57eb94; */
@@ -35,7 +38,7 @@ provideToast()
 /* transition: 10s ease-in-out; */
 
 .slide-fade-enter-active {
-  transition: all 0.8s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-fade-leave-active {
@@ -44,7 +47,7 @@ provideToast()
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateX(20px);
+  transform: translateX(-100%);
   opacity: 0;
 }
 </style>

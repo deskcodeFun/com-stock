@@ -1,6 +1,6 @@
 <template>
   <ComputerTotal />
-  <ComputerGet />
+  <!-- <ComputerGet /> -->
   <!-- 
   <PrinterGet />
   <PeripheralGet />
