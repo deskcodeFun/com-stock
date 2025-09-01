@@ -1,14 +1,12 @@
 <template>
   <main class="w-auto ml-4 sm:ml-8" id="mainApp">
-    <TheTopbar  />
-    <SwitchView />
+    <TheTopbar  />   
     <RouterView />
   </main>
 </template>
 
 <script setup>
  
-import SwitchView from './components/computer/SwitchView.vue'
 import { RouterView } from 'vue-router'
 import TheTopbar from '@/components/TheTopbar.vue'
 

@@ -6,6 +6,7 @@ import NotFoundView from '../views/NotFoundView.vue'
 import ComputerDetail from '@/components/computer/ComputerDetail.vue'
 
 import ServiceView from '@/views/ServiceView.vue'
+import ComputerAdd from '@/components/computer/ComputerAdd.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,12 @@ const router = createRouter({
       name: 'computer-detail',
 
       component: ComputerDetail,
+    },
+    {
+      path: '/computer/computer-add',
+      name: 'computer-add',
+
+      component: ComputerAdd,
     },
     {
       path: '/:catchAll(.*)',

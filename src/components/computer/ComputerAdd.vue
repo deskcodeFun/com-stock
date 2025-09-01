@@ -7,13 +7,13 @@
   -->
   <template>
   <BaseButtonBack />
-  <p class="my-4 mx-4 text-2xl font-bold text-blue-900">Add New Computer</p>
-  <div class="flex flex-row">
+  <p class="my-4  text-xl font-bold text-blue-900">Add New Computer</p>
     <!-- Form: Add new computer we don't need validation data cause it's all text -->
-    <div class="w-1/2 pr-24 pl-4">
-      <p>Computer Specification</p>
-      <form @submit.prevent="addSubmit">
-        <TextInput
+    <p>Computer Specification</p>
+    <div >
+      <form class="flex flex-col sm:flex-row " @submit.prevent="addSubmit">
+        <div class="flex-row flex-wrap px-8">
+          <TextInput
           v-model.lazy.trim="assetComponent.modelValue"
           :label="assetComponent.label"
           :placeholder="assetComponent.placeholder"
@@ -58,6 +58,8 @@
           :minLength="cpuComponent.minLength"
           :maxLength="cpuComponent.maxLength"
         ></TextInput>
+        </div>
+        <div class="flex-row flex-wrap px-8">
         <TextInput
           v-model.lazy.trim="aiComponent.modelValue"
           :label="aiComponent.label"
@@ -103,63 +105,67 @@
           :minLength="maxRamComponent.minLength"
           :maxLength="maxRamComponent.maxLength"
         ></TextInput>
-        <TextInput
-          v-model.lazy.trim="harddiskComponent.modelValue"
-          :label="harddiskComponent.label"
-          :placeholder="harddiskComponent.placeholder"
-          :pattern="harddiskComponent.pattern"
-          :errorMessage="harddiskComponent.errorMessage"
-          :minLength="harddiskComponent.minLength"
-          :maxLength="harddiskComponent.maxLength"
-        ></TextInput>
-        <TextInput
-          v-model.lazy.trim="harddiskSlotComponent.modelValue"
-          :label="harddiskSlotComponent.label"
-          :placeholder="harddiskSlotComponent.placeholder"
-          :pattern="harddiskSlotComponent.pattern"
-          :errorMessage="harddiskSlotComponent.errorMessage"
-          :minLength="harddiskSlotComponent.minLength"
-          :maxLength="harddiskSlotComponent.maxLength"
-        ></TextInput>
-        <TextInput
-          v-model.lazy.trim="lanPortComponent.modelValue"
-          :label="lanPortComponent.label"
-          :placeholder="lanPortComponent.placeholder"
-          :pattern="lanPortComponent.pattern"
-          :errorMessage="lanPortComponent.errorMessage"
-          :minLength="lanPortComponent.minLength"
-          :maxLength="lanPortComponent.maxLength"
-        ></TextInput>
-        <TextInput
-          v-model.lazy.trim="wirelessSlotComponent.modelValue"
-          :label="wirelessSlotComponent.label"
-          :placeholder="wirelessSlotComponent.placeholder"
-          :pattern="wirelessSlotComponent.pattern"
-          :errorMessage="wirelessSlotComponent.errorMessage"
-          :minLength="wirelessSlotComponent.minLength"
-          :maxLength="wirelessSlotComponent.maxLength"
-        ></TextInput>
-        <TextInput
-          v-model.lazy.trim="bluetoothComponent.modelValue"
-          :label="bluetoothComponent.label"
-          :placeholder="bluetoothComponent.placeholder"
-          :pattern="bluetoothComponent.pattern"
-          :errorMessage="bluetoothComponent.errorMessage"
-          :minLength="bluetoothComponent.minLength"
-          :maxLength="bluetoothComponent.maxLength"
-        ></TextInput>
-        <div>
-          <button
-            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mt-4 rounded-full w-full focus:outline-hidden focus:shadow-outline"
-            type="submit"
-          >
-            Add Computer
-          </button>
-        </div>
+      </div>
+        <div class="flex-row flex-wrap px-8">
+          <TextInput
+            v-model.lazy.trim="harddiskComponent.modelValue"
+            :label="harddiskComponent.label"
+            :placeholder="harddiskComponent.placeholder"
+            :pattern="harddiskComponent.pattern"
+            :errorMessage="harddiskComponent.errorMessage"
+            :minLength="harddiskComponent.minLength"
+            :maxLength="harddiskComponent.maxLength"
+          ></TextInput>
+          <TextInput
+            v-model.lazy.trim="harddiskSlotComponent.modelValue"
+            :label="harddiskSlotComponent.label"
+            :placeholder="harddiskSlotComponent.placeholder"
+            :pattern="harddiskSlotComponent.pattern"
+            :errorMessage="harddiskSlotComponent.errorMessage"
+            :minLength="harddiskSlotComponent.minLength"
+            :maxLength="harddiskSlotComponent.maxLength"
+          ></TextInput>
+          <TextInput
+            v-model.lazy.trim="lanPortComponent.modelValue"
+            :label="lanPortComponent.label"
+            :placeholder="lanPortComponent.placeholder"
+            :pattern="lanPortComponent.pattern"
+            :errorMessage="lanPortComponent.errorMessage"
+            :minLength="lanPortComponent.minLength"
+            :maxLength="lanPortComponent.maxLength"
+          ></TextInput>
+          <TextInput
+            v-model.lazy.trim="wirelessSlotComponent.modelValue"
+            :label="wirelessSlotComponent.label"
+            :placeholder="wirelessSlotComponent.placeholder"
+            :pattern="wirelessSlotComponent.pattern"
+            :errorMessage="wirelessSlotComponent.errorMessage"
+            :minLength="wirelessSlotComponent.minLength"
+            :maxLength="wirelessSlotComponent.maxLength"
+          ></TextInput>
+          <TextInput
+            v-model.lazy.trim="bluetoothComponent.modelValue"
+            :label="bluetoothComponent.label"
+            :placeholder="bluetoothComponent.placeholder"
+            :pattern="bluetoothComponent.pattern"
+            :errorMessage="bluetoothComponent.errorMessage"
+            :minLength="bluetoothComponent.minLength"
+            :maxLength="bluetoothComponent.maxLength"
+          ></TextInput>
+
+        </div>        
       </form>
+      <div>
+        <button
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 mt-4 rounded-full w-full sm:w-fit focus:outline-hidden focus:shadow-outline"
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
     </div>
-    <!-- Add image form: select picture and resize to resolution H:150px -->
-    <div>
+    <!-- Add user info -->
+    <!-- <div>
       <p class="">User Infomation</p>
       <p>user name</p>
       <p>office</p>
@@ -167,16 +173,17 @@
       <p>return date</p>
       <BaseButton label="Skip"></BaseButton>
       <BaseButton class="mx-8" label="Next"></BaseButton>
-    </div>
-    <div class="ml-24">
+    </div> -->
+    <!-- Add image form: select picture and resize to resolution H:150px -->
+    <!-- <div class="ml-24">
       <p>Computer imgage</p>
       <input type="file" class="w-64 h-24 my-4 border-2 border-blue-800" />
       <div>
         <BaseButton label="Skip"></BaseButton>
         <BaseButton class="mx-8" label="Next"></BaseButton>
       </div>
-    </div>
-  </div>
+    </div> -->
+ 
 </template>
 
 <script setup>
@@ -184,12 +191,12 @@ import { reactive, ref } from 'vue'
 
 import TextInput from '@/components/TextInput.vue'
 import { supabase } from '@/lib/supabaseClient'
-import { useToast } from 'vue-toastification'
+// import { useToast } from 'vue-toastification'
 import router from '@/router'
-import BaseButtonBack from './BaseButtonBack.vue'
-import BaseButton from './BaseButton.vue'
+import BaseButtonBack from '@/components/BaseButtonBack.vue'
+import BaseButton from '@/components/BaseButton.vue'
 
-const toast = useToast()
+// const toast = useToast()
 const assetComponent = reactive({
   modelValue: '',
   type: 'text',
@@ -357,17 +364,12 @@ const addSubmit = async () => {
     harddisk_slot: harddiskSlotComponent.modelValue,
     lan_port: lanPortComponent.modelValue,
     wireless: wirelessSlotComponent.modelValue,
-    bluetooth: bluetoothComponent.modelValue,
+    bluetooth: bluetoothComponent.modelValue
+    
   }
   try {
-    const response = await supabase.from('computer').insert(newComputer)
-    const { data } = await supabase
-      .from('computer')
-      .select()
-      .order('id', { ascending: false })
-      .limit(1)
-    router.push({ path: `/computer/${data[0].id}` })
-    toast.success('New computer added Successfully')
+    const {data } = await supabase.from('computer').insert(newComputer)
+    router.push({ path: '/' })    
   } catch (error) {
     console.log('error is :', error)
   }

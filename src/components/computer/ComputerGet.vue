@@ -3,11 +3,7 @@
     <p class="text-sm text-gray-500">
       Filter by :
       <span>
-        <select
-          class="px-8 py-1 w-fit border-1 border-blue-300"
-          @change="handleChange"
-          v-model="officeFilter"
-        >
+        <select class="px-8 py-1 w-fit border-1" @change="handleChange" v-model="officeFilter">
           <option value="" disabled>Select BU</option>
           <option
             v-for="officeName in officeName.office"
@@ -20,13 +16,20 @@
         </select>
       </span>
     </p>
-   
+    <span>
+      <button
+        class="flex flex-row px-4 py-1 hover:bg-gray-100"
+        @click="router.push('/computer/computer-add')"      >
+        <SquaresPlusIcon class="h-6 w-6 mr-2 text-gray-500" />
+        Add New
+      </button>
+    </span>
   </div>
   <!--  Show data computer -->
   <div v-if="computer.isLoading" class="text-green-600 text-2xl text-center">Loading...</div>
   <div v-else>
     <p class="mt-4">Computer</p>
-    <ul class=" bg-sky-50/30 flex flex-row flex-wrap justify-center sm:justify-start">
+    <ul class="bg-sky-50/30 flex flex-row flex-wrap justify-center sm:justify-start">
       <li v-for="computer in computer.officeComputers" :key="computer.id">
         <ComputerCard :items="computer" />
       </li>
@@ -40,8 +43,8 @@ import { useRouter, useRoute } from 'vue-router'
 import { useComputer } from '@/stores/computer'
 import { useOfficeStore } from '@/stores/office'
 import ComputerCard from './ComputerCard.vue'
-
-
+import ComputerAdd from './ComputerAdd.vue'
+import { SquaresPlusIcon } from '@heroicons/vue/24/outline'
 
 const computer = useComputer()
 const officeName = useOfficeStore()

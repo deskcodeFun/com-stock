@@ -1,11 +1,13 @@
 <template>
   <ComputerTotal />
-  <!-- <ComputerGet /> -->
+  <ComputerGet />
+  <!-- <SwitchView /> -->
+  
   <!-- 
-  <PrinterGet />
-  <PeripheralGet />
-  ...
-  ..
+    <PrinterGet />
+    <PeripheralGet />
+    ...
+    ..
   -->
   
 </template>
@@ -14,5 +16,6 @@
 
 import ComputerGet from '@/components/computer/ComputerGet.vue';
 import ComputerTotal from '@/components/computer/ComputerTotal.vue';
+// import SwitchView from '@/components/computer/SwitchView.vue'
 
 </script>
