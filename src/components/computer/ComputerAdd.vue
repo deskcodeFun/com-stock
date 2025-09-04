@@ -1,19 +1,12 @@
-<!-- 
-  this is a add new computer form with multi step
-  1-3 for specification
-  4 for user infomation
-  5 add computer image with skip
-  6 show summary and insert new row to database 
-  -->
-  <template>
+<template>
   <BaseButtonBack />
-  <p class="my-4  text-xl font-bold text-blue-900">Add New Computer</p>
-    <!-- Form: Add new computer we don't need validation data cause it's all text -->
-    <p>Computer Specification</p>
-    <div >
-      <form class="flex flex-col sm:flex-row " @submit.prevent="addSubmit">
-        <div class="flex-row flex-wrap px-8">
-          <TextInput
+  <p class="my-4 text-xl font-bold text-blue-900">Add New Computer</p>
+  <!-- Form: Add new computer we don't need validation data cause it's all text -->
+  <p>Computer Specification</p>
+  <div>
+    <form class="flex flex-col sm:flex-row" @submit.prevent="addSubmit">
+      <div class="flex-row flex-wrap px-8">
+        <TextInput
           v-model.lazy.trim="assetComponent.modelValue"
           :label="assetComponent.label"
           :placeholder="assetComponent.placeholder"
@@ -58,8 +51,8 @@
           :minLength="cpuComponent.minLength"
           :maxLength="cpuComponent.maxLength"
         ></TextInput>
-        </div>
-        <div class="flex-row flex-wrap px-8">
+      </div>
+      <div class="flex-row flex-wrap px-8">
         <TextInput
           v-model.lazy.trim="aiComponent.modelValue"
           :label="aiComponent.label"
@@ -106,66 +99,65 @@
           :maxLength="maxRamComponent.maxLength"
         ></TextInput>
       </div>
-        <div class="flex-row flex-wrap px-8">
-          <TextInput
-            v-model.lazy.trim="harddiskComponent.modelValue"
-            :label="harddiskComponent.label"
-            :placeholder="harddiskComponent.placeholder"
-            :pattern="harddiskComponent.pattern"
-            :errorMessage="harddiskComponent.errorMessage"
-            :minLength="harddiskComponent.minLength"
-            :maxLength="harddiskComponent.maxLength"
-          ></TextInput>
-          <TextInput
-            v-model.lazy.trim="harddiskSlotComponent.modelValue"
-            :label="harddiskSlotComponent.label"
-            :placeholder="harddiskSlotComponent.placeholder"
-            :pattern="harddiskSlotComponent.pattern"
-            :errorMessage="harddiskSlotComponent.errorMessage"
-            :minLength="harddiskSlotComponent.minLength"
-            :maxLength="harddiskSlotComponent.maxLength"
-          ></TextInput>
-          <TextInput
-            v-model.lazy.trim="lanPortComponent.modelValue"
-            :label="lanPortComponent.label"
-            :placeholder="lanPortComponent.placeholder"
-            :pattern="lanPortComponent.pattern"
-            :errorMessage="lanPortComponent.errorMessage"
-            :minLength="lanPortComponent.minLength"
-            :maxLength="lanPortComponent.maxLength"
-          ></TextInput>
-          <TextInput
-            v-model.lazy.trim="wirelessSlotComponent.modelValue"
-            :label="wirelessSlotComponent.label"
-            :placeholder="wirelessSlotComponent.placeholder"
-            :pattern="wirelessSlotComponent.pattern"
-            :errorMessage="wirelessSlotComponent.errorMessage"
-            :minLength="wirelessSlotComponent.minLength"
-            :maxLength="wirelessSlotComponent.maxLength"
-          ></TextInput>
-          <TextInput
-            v-model.lazy.trim="bluetoothComponent.modelValue"
-            :label="bluetoothComponent.label"
-            :placeholder="bluetoothComponent.placeholder"
-            :pattern="bluetoothComponent.pattern"
-            :errorMessage="bluetoothComponent.errorMessage"
-            :minLength="bluetoothComponent.minLength"
-            :maxLength="bluetoothComponent.maxLength"
-          ></TextInput>
-
-        </div>        
-      </form>
-      <div>
-        <button
-          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 mt-4 rounded-full w-full sm:w-fit focus:outline-hidden focus:shadow-outline"
-          type="submit"
-        >
-          Save
-        </button>
+      <div class="flex-row flex-wrap px-8">
+        <TextInput
+          v-model.lazy.trim="harddiskComponent.modelValue"
+          :label="harddiskComponent.label"
+          :placeholder="harddiskComponent.placeholder"
+          :pattern="harddiskComponent.pattern"
+          :errorMessage="harddiskComponent.errorMessage"
+          :minLength="harddiskComponent.minLength"
+          :maxLength="harddiskComponent.maxLength"
+        ></TextInput>
+        <TextInput
+          v-model.lazy.trim="harddiskSlotComponent.modelValue"
+          :label="harddiskSlotComponent.label"
+          :placeholder="harddiskSlotComponent.placeholder"
+          :pattern="harddiskSlotComponent.pattern"
+          :errorMessage="harddiskSlotComponent.errorMessage"
+          :minLength="harddiskSlotComponent.minLength"
+          :maxLength="harddiskSlotComponent.maxLength"
+        ></TextInput>
+        <TextInput
+          v-model.lazy.trim="lanPortComponent.modelValue"
+          :label="lanPortComponent.label"
+          :placeholder="lanPortComponent.placeholder"
+          :pattern="lanPortComponent.pattern"
+          :errorMessage="lanPortComponent.errorMessage"
+          :minLength="lanPortComponent.minLength"
+          :maxLength="lanPortComponent.maxLength"
+        ></TextInput>
+        <TextInput
+          v-model.lazy.trim="wirelessSlotComponent.modelValue"
+          :label="wirelessSlotComponent.label"
+          :placeholder="wirelessSlotComponent.placeholder"
+          :pattern="wirelessSlotComponent.pattern"
+          :errorMessage="wirelessSlotComponent.errorMessage"
+          :minLength="wirelessSlotComponent.minLength"
+          :maxLength="wirelessSlotComponent.maxLength"
+        ></TextInput>
+        <TextInput
+          v-model.lazy.trim="bluetoothComponent.modelValue"
+          :label="bluetoothComponent.label"
+          :placeholder="bluetoothComponent.placeholder"
+          :pattern="bluetoothComponent.pattern"
+          :errorMessage="bluetoothComponent.errorMessage"
+          :minLength="bluetoothComponent.minLength"
+          :maxLength="bluetoothComponent.maxLength"
+        ></TextInput>
       </div>
+    </form>
+    <div>
+      <button
+        class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 mt-4 rounded-full w-full sm:w-fit focus:outline-hidden focus:shadow-outline"
+        type="submit"
+      >
+        Save
+      </button>
     </div>
-    <!-- Add user info -->
-    <!-- <div>
+  </div>
+  <!-- Add user info -->
+  <!-- <div>
       <p class="">User Infomation</p>
       <p>user name</p>
       <p>office</p>
@@ -174,8 +166,8 @@
       <BaseButton label="Skip"></BaseButton>
       <BaseButton class="mx-8" label="Next"></BaseButton>
     </div> -->
-    <!-- Add image form: select picture and resize to resolution H:150px -->
-    <!-- <div class="ml-24">
+  <!-- Add image form: select picture and resize to resolution H:150px -->
+  <!-- <div class="ml-24">
       <p>Computer imgage</p>
       <input type="file" class="w-64 h-24 my-4 border-2 border-blue-800" />
       <div>
@@ -183,7 +175,6 @@
         <BaseButton class="mx-8" label="Next"></BaseButton>
       </div>
     </div> -->
- 
 </template>
 
 <script setup>
@@ -364,12 +355,11 @@ const addSubmit = async () => {
     harddisk_slot: harddiskSlotComponent.modelValue,
     lan_port: lanPortComponent.modelValue,
     wireless: wirelessSlotComponent.modelValue,
-    bluetooth: bluetoothComponent.modelValue
-    
+    bluetooth: bluetoothComponent.modelValue,
   }
   try {
-    const {data } = await supabase.from('computer').insert(newComputer)
-    router.push({ path: '/' })    
+    const { data } = await supabase.from('computer').insert(newComputer)
+    router.push({ path: '/' })
   } catch (error) {
     console.log('error is :', error)
   }
@@ -377,5 +367,3 @@ const addSubmit = async () => {
 </script>
 <!-- lastComputer.value =data -->
 <!-- router.push(`/computer/${data.id}`) -->
-
-

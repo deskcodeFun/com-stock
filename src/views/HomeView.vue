@@ -1,5 +1,5 @@
 <template>
-  <ComputerTotal />
+  <!-- <ComputerTotal /> -->
   <ComputerGet />
   <!-- <SwitchView /> -->
   
