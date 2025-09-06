@@ -5,9 +5,9 @@
       @click="router.push(`/computer/${items.id}`)"
     >
       <!-- Show image default -->
-      <!-- <div v-if="items.image">
+      <div v-if="items.image">
         <img class="h-[100px] mx-auto mb-4" :src="items.image[0]" alt="items image" />
-      </div> -->
+      </div>
       <!-- Show data -->
       <table>
         <tbody>

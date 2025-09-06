@@ -5,7 +5,7 @@
       <!-- add new user  -->
       <button
         class="flex flex-row py-1 hover:bg-gray-100"
-        @click="router.push('/computer/computer-add')"
+        @click="router.push('/computer/user-add')"
       >
         <UserPlusIcon class="h-5 w-5 mr-1 text-gray-500" />
         <p class="text-md">User</p>

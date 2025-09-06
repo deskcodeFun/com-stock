@@ -3,18 +3,16 @@
   <div class="flex flex-col lg:flex-row">
     <!-- Show computer spec -->
     <div class="w-fit flex flex-col flex-wrap justify-between">
-      <div class="text-xl ml-4 text-blue-900">Computer Spec</div>
-      <!-- initial store.computerDetail 
-        if true show spec computer 
-        if store is null don't show anything
-      -->
+      <div class="flex flex-row text-xl ml-4 text-blue-900">
+        <p class="mr-2">Computer Spec</p>
+      </div>
       <div v-if="store.computerDetail">
         <div
           class="flex flex-row flex-wrap justify-center p-4 m-2 bg-white border border-blue-900 rounded-2xl"
         >
           <div v-if="store.computerDetail[0].image">
             <img
-              class="h-[420px]  mx-auto w-auto mb-4 px-4"
+              class="h-[420px] mx-auto w-auto mb-4 px-4"
               :src="store.computerDetail[0].image[1]"
               alt="computer image"
             />
@@ -66,7 +64,9 @@
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Ram</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].ram }}</td>
+                <td class="text-blue-800 px-4">
+                  {{ store.computerDetail[0].ram }}
+                </td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Max ram</th>
@@ -112,7 +112,9 @@
     <!-- Check user_id is not null -->
     <div v-if="store.computerDetail && store.computerDetail[0].staff">
       <div class="text-xl ml-14 text-blue-900">User infomation</div>
-      <div class="flex flex-row flex-wrap p-4 ml-12 mt-2 bg-white border border-blue-900 rounded-2xl">
+      <div
+        class="flex flex-row flex-wrap p-4 ml-12 mt-2 bg-white border border-blue-900 rounded-2xl"
+      >
         <!--<img
           class="h-50px mx-auto w-auto mb-4 px-4"
           src="\src\assets\images\avatar-128.png"
@@ -190,17 +192,18 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+
+import {  useRoute } from 'vue-router'
 import { useComputer } from '@/stores/computer'
 import { useServiceLog } from '@/stores/service_log'
 import BaseButtonBack from '@/components/BaseButtonBack.vue'
-
 const store = useComputer()
 const log = useServiceLog()
 const route = useRoute()
 let paramId = route.params.id
 store.getComputerDetail(paramId)
 log.getServiceDetail(paramId)
-console.log('computerDetail',store.computerDetail)
 
+
+console.log('computerDetail', store.computerDetail)
 </script>

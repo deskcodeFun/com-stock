@@ -147,6 +147,7 @@
         ></TextInput>
       </div>
     </form>
+    <!-- Save data button -->
     <div>
       <button
         class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 mt-4 rounded-full w-full sm:w-fit focus:outline-hidden focus:shadow-outline"
@@ -156,25 +157,7 @@
       </button>
     </div>
   </div>
-  <!-- Add user info -->
-  <!-- <div>
-      <p class="">User Infomation</p>
-      <p>user name</p>
-      <p>office</p>
-      <p>start date</p>
-      <p>return date</p>
-      <BaseButton label="Skip"></BaseButton>
-      <BaseButton class="mx-8" label="Next"></BaseButton>
-    </div> -->
-  <!-- Add image form: select picture and resize to resolution H:150px -->
-  <!-- <div class="ml-24">
-      <p>Computer imgage</p>
-      <input type="file" class="w-64 h-24 my-4 border-2 border-blue-800" />
-      <div>
-        <BaseButton label="Skip"></BaseButton>
-        <BaseButton class="mx-8" label="Next"></BaseButton>
-      </div>
-    </div> -->
+ 
 </template>
 
 <script setup>
@@ -365,5 +348,4 @@ const addSubmit = async () => {
   }
 }
 </script>
-<!-- lastComputer.value =data -->
-<!-- router.push(`/computer/${data.id}`) -->
+

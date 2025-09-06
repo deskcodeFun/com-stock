@@ -7,6 +7,7 @@ import ComputerDetail from '@/components/computer/ComputerDetail.vue'
 
 import ServiceView from '@/views/ServiceView.vue'
 import ComputerAdd from '@/components/computer/ComputerAdd.vue'
+import UserAdd from '@/components/user/userAdd.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,14 @@ const router = createRouter({
       name: 'computer-add',
 
       component: ComputerAdd,
+    },
+    {
+    },
+    {
+      path: '/computer/user-add',
+      name: 'user-add',
+
+      component: UserAdd,
     },
     {
       path: '/:catchAll(.*)',
