@@ -1,6 +1,6 @@
 <template>
   <div class="pb-4">
-    <p class="mr-4 mt-2 text-gray-600">{{ props.label }}</p>
+    <p class="mr-4 mt-2 text-sky-900 text-shadow-2xs">{{ props.label }}</p>
     <input
       class="w-full border-b nowrap rounded-sm p-2 bg-blue-50 text-blue-900 leading-tight focus:outline-hidden focus:shadow-outline"
       :type="props.type"
@@ -10,7 +10,7 @@
       @blur="validateData"
     />
     <span class="text-sm text-red-800" v-if="isValidate"
-      >{{ props.errorMessage || localError }} {{ isValidate }}</span
+      >{{ props.errorMessage || localError }}</span
     >
     <span v-else></span>
   </div>

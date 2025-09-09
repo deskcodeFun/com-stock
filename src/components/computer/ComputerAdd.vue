@@ -2,7 +2,7 @@
   <BaseButtonBack />
   <p class="my-4 text-xl font-bold text-blue-900">Add New Computer</p>
   <!-- Form: Add new computer we don't need validation data cause it's all text -->
-  <p>Computer Specification</p>
+  <h1>Computer Specification</h1>
   <div>
     <form class="flex flex-col sm:flex-row" @submit.prevent="addSubmit">
       <div class="flex-row flex-wrap px-8">
@@ -152,6 +152,7 @@
       <button
         class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 mt-4 rounded-full w-full sm:w-fit focus:outline-hidden focus:shadow-outline"
         type="submit"
+        @click="addSubmit"
       >
         Save
       </button>
@@ -341,7 +342,9 @@ const addSubmit = async () => {
     bluetooth: bluetoothComponent.modelValue,
   }
   try {
-    const { data } = await supabase.from('computer').insert(newComputer)
+    const { data,error } = await supabase.from('computer').insert([newComputer]).select()
+    
+
     router.push({ path: '/' })
   } catch (error) {
     console.log('error is :', error)

@@ -44,8 +44,6 @@ const router = createRouter({
       component: ComputerAdd,
     },
     {
-    },
-    {
       path: '/computer/user-add',
       name: 'user-add',
 
