@@ -12,7 +12,7 @@
         >
           <div v-if="store.computerDetail[0].image">
             <img
-              class="h-[420px] mx-auto w-auto mb-4 px-4"
+              class="h-[480px] mx-auto w-auto mb-4 px-4"
               :src="store.computerDetail[0].image[1]"
               alt="computer image"
             />

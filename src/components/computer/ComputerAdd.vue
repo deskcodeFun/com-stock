@@ -1,7 +1,7 @@
 <template>
   <BaseButtonBack />
   <p class="my-4 text-xl font-bold text-blue-900">Add New Computer</p>
-  <!-- Form: Add new computer we don't need validation data cause it's all text -->
+  <!-- Form: Add new computer  -->
   <h1>Computer Specification</h1>
   <div>
     <form class="flex flex-col sm:flex-row" @submit.prevent="addSubmit">

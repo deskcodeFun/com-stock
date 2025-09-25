@@ -1,7 +1,7 @@
 <template>
   <BaseButtonBack />
   <p class="my-4 text-xl font-bold text-blue-900">Add Computer user</p>
-  <!-- Form: Add new computer we don't need validation data cause it's all text -->
+  <!-- Form: Add new user -->
   <h1>User info</h1>
   <div>
     <form class="w-auto sm:max-w-screen-sm flex flex-col gap-4" @submit.prevent="addSubmit">

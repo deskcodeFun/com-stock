@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row flex-wrap justify-center">
     <div
-      class="w-[280px] bg-white border-1 border-gray-200 rounded-2xl m-4 p-4  hover:shadow-2xl hover:transition-y-1 hover:scale-101"
+      class="w-[260px] bg-white border-1 border-gray-200 rounded-2xl m-4 p-4 hover:shadow-2xl hover:transition-y-1 hover:scale-101"
       @click="router.push(`/computer/${items.id}`)"
     >
       <!-- Show image default -->
@@ -9,42 +9,43 @@
         <img class="h-[100px] mx-auto mb-4" :src="items.image[0]" alt="items image" />
       </div>
       <!-- Show data -->
-      <table>
+      <table
+        class="[&_th]:text-left [&_th]:text-xs [&_td]:text-blue-800 [&_td]:pl-4 [&_td]:font-bold"
+      >
         <tbody>
           <tr>
-            <th class="text-gray-400 text-left text-xs">Assets</th>
-            <td class="text-blue-800 pl-4 font-bold">{{ items.asset_tag }}</td>
+            <th>Assets</th>
+            <td>{{ items.asset_tag }}</td>
           </tr>
           <tr>
-            <th class="text-gray-400 text-left text-xs">
+            <th>
               <p v-if="items.staff">User</p>
               <p v-else>Status</p>
             </th>
             <td>
-              <p v-if="items.staff" class="text-green-900 font-bold pl-4">
+              <p v-if="items.staff">
                 {{ fullName }}
               </p>
-              <p v-else class="text-red-900 font-bold pl-4">Free</p>
+              <p v-else>Free</p>
             </td>
           </tr>
-          <!-- 
           <tr>
-            <th class="text-gray-400 text-left text-xs">Brand</th>
-            <td class="text-blue-800 pl-4">{{ items.brand }}</td>
+            <th>Brand</th>
+            <td>{{ items.brand }}</td>
           </tr>
           <tr>
-            <th class="text-gray-400 text-left text-xs">CPU</th>
-            <td class="text-blue-800 pl-4">{{ items.cpu.substring(0, 17) }}</td>
+            <th>CPU</th>
+            <td>{{ items.cpu.substring(0, 17) }}</td>
           </tr>
           <tr>
-            <th class="text-gray-400 text-left text-xs">Ram</th>
-            <td class="text-blue-800 pl-4">{{ computer.ram.substring(0, 4) }}</td>
-          </tr> 
-          <tr>
-            <th class="text-gray-400 text-left text-xs">Serial</th>
-            <td class="text-blue-800 pl-4">{{ items.serial_tag}}</td>
+            <th>Ram</th>
+            <td>{{ items.ram.substring(0, 4) }}</td>
           </tr>
-          -->
+          <tr>
+            <th>Serial</th>
+            <td>{{ serialTag }}</td>
+            <!-- <td>{{ items.serial_tag.substring(0,15) }}</td> -->
+          </tr>
         </tbody>
       </table>
     </div>
@@ -62,5 +63,13 @@ const props = defineProps({
 
 const fullName = computed(() => {
   return props.items.staff.fname + '.' + props.items.staff.lname.substring(0, 1)
+})
+
+const serialTag = computed(() => {
+  if(props.items.serial_tag.length > 16){
+    return props.items.serial_tag.substring(0, 13)+'...'
+  } else {
+    return props.items.serial_tag
+  }
 })
 </script>
