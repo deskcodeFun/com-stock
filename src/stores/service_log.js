@@ -9,9 +9,10 @@ export const useServiceLog = defineStore('service_log', () => {
 
   async function fetchService() {
     try {
-      const { data } = await supabase.from('service_log').select(`*, stock(*, ...staff!inner(*))`)
-
+      const { data, error } = await supabase.from('service_log').select(`*, computer(*, ...staff!inner(*))`)
+      
       serviceLog.value = data
+      if (error) throw error
       // console.log('service in store :', serviceLog)
     } catch (error) {
       console.error('Fetch Service Store error:', error)
@@ -20,15 +21,14 @@ export const useServiceLog = defineStore('service_log', () => {
     }
   }
   async function getServiceDetail(paramId) {
-    if (paramId !== '') {
+    if (paramId !== undefined) {
       try {
         const { data, error } = await supabase
           .from('service_log')
           .select('*')
-          .eq('computer_id', paramId)
+          .eq('computer_id', paramId)        
         serviceDetail.value = data
-        // console.log('Servie detail :', serviceDetail)
-        // console.log('param id: ',paramId)
+        if (error) throw error
       } catch (error) {
         console.error('Fetch service detail error:', error)
       } finally {
@@ -36,15 +36,17 @@ export const useServiceLog = defineStore('service_log', () => {
       }
     } else {
       console.log('parmaID is undefined')
+      isLoading = false
     }
-    isLoading = false
   }
   async function updateServiceState(list, itemID) {
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('service_log')
         .update({ state: list })
         .eq('id', itemID)
+      if (error) throw error
+
     } catch (error) {
       console.error('UPDATE Service Log error:', error)
     } finally {
@@ -53,11 +55,10 @@ export const useServiceLog = defineStore('service_log', () => {
   }
   fetchService()
   updateServiceState()
-  //  getServiceDetail()
+    getServiceDetail()
   return {
     serviceLog,
     serviceDetail,
-
     fetchService,
     getServiceDetail,
     updateServiceState,

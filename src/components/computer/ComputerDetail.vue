@@ -1,29 +1,22 @@
 <template>
   <BaseButtonBack />
-  <div class="flex flex-col lg:flex-row">
+  <div class="flex flex-col sm:flex-row sm:gap-12">
     <!-- Show computer spec -->
-    <div class="w-fit flex flex-col flex-wrap justify-between">
-      <div class="flex flex-row text-xl ml-4 text-blue-900">
+    <div class="w-fit flex flex-col flex-wrap sm:justify-between">
+      <div class="flex flex-row  text-xl ml-4 text-gray-900">
         <p class="mr-2">Computer Spec</p>
       </div>
       <div v-if="store.computerDetail">
         <div
-          class="flex flex-row flex-wrap justify-center p-4 m-2 bg-white border border-blue-900 rounded-2xl"
+          class="justify-center px-8 py-4 sm:flex sm:flex-row sm:gap-8 bg-white border border-gray-300 shadow-sm rounded-2xl"
         >
           <div v-if="store.computerDetail[0].image">
             <img
-              class="h-[480px] mx-auto w-auto mb-4 px-4"
+              class="h-[280px] mx-auto mb-4 sm:h-[480px]"
               :src="store.computerDetail[0].image[1]"
               alt="computer image"
             />
           </div>
-          <!-- <div v-else>
-            <img
-              class="h-50px mx-auto w-auto mb-4 px-4"
-              src="\src\assets\images\lenovo.png"
-              alt="computer image"
-            /> 
-          </div>-->
           <table>
             <tbody class="align-baseline">
               <tr>
@@ -39,68 +32,68 @@
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Assets</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].asset_tag }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].asset_tag }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Serial</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].serial_tag }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].serial_tag }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Brand</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].brand }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].brand }}</td>
               </tr>
 
               <tr>
                 <th class="text-gray-400 text-left text-xs">Model</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].model }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].model }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">CPU</th>
-                <td class="text-blue-800 px-4 w-xs text-warp">{{ store.computerDetail[0].cpu }}</td>
+                <td class="test-gray-900 px-4 w-xs text-warp">{{ store.computerDetail[0].cpu }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">AI</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].ai }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].ai }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Ram</th>
-                <td class="text-blue-800 px-4">
+                <td class="test-gray-900 px-4">
                   {{ store.computerDetail[0].ram }}
                 </td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Max ram</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].max_ram }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].max_ram }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Hard disk</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].harddisk }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].harddisk }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">HD slot</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].harddisk_slot }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].harddisk_slot }}</td>
               </tr>
 
               <tr>
                 <th class="text-gray-400 text-left text-xs">Graphic</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].graphic }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].graphic }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Display</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].screen_size }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].screen_size }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">bluetooth</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].bluetooth }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].bluetooth }}</td>
               </tr>
               <tr>
                 <th class="text-gray-400 text-left text-xs">Lan</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].lan_port }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].lan_port }}</td>
               </tr>
 
               <tr>
                 <th class="text-gray-400 text-left text-xs">Wireless</th>
-                <td class="text-blue-800 px-4">{{ store.computerDetail[0].wireless }}</td>
+                <td class="test-gray-900 px-4">{{ store.computerDetail[0].wireless }}</td>
               </tr>
             </tbody>
           </table>
@@ -111,9 +104,9 @@
     <!-- show user info -->
     <!-- Check user_id is not null -->
     <div v-if="store.computerDetail && store.computerDetail[0].staff">
-      <div class="text-xl ml-14 text-blue-900">User infomation</div>
+      <div class="text-xl ml-2 text-blue-900">User infomation</div>
       <div
-        class="flex flex-row flex-wrap p-4 ml-12 mt-2 bg-white border border-blue-900 rounded-2xl"
+        class="flex flex-row flex-wrap p-4 mt-2 bg-white border border-gray-300 shadow-sm rounded-2xl"
       >
         <!--<img
           class="h-50px mx-auto w-auto mb-4 px-4"
@@ -124,7 +117,7 @@
           <tbody class="align-baseline">
             <tr>
               <th class="text-gray-400 text-left text-xs">User Name</th>
-              <td class="text-blue-800 px-4">
+              <td class="test-gray-900 px-4">
                 {{
                   store.computerDetail[0].staff.fname + ' ' + store.computerDetail[0].staff.lname
                 }}
@@ -132,11 +125,11 @@
             </tr>
             <tr>
               <th class="text-gray-400 text-left text-xs">Email</th>
-              <td class="text-blue-800 px-4">{{ store.computerDetail[0].staff.email }}</td>
+              <td class="test-gray-900 px-4">{{ store.computerDetail[0].staff.email }}</td>
             </tr>
             <tr>
               <th class="text-gray-400 text-left text-xs">Office</th>
-              <td class="text-blue-800 px-4">
+              <td class="test-gray-900 px-4">
                 {{
                   store.computerDetail[0].staff.name +
                   ' ' +
@@ -147,15 +140,15 @@
 
             <tr>
               <th class="text-gray-400 text-left text-xs">Department</th>
-              <td class="text-blue-800 px-4">{{ store.computerDetail[0].staff.department }}</td>
+              <td class="test-gray-900 px-4">{{ store.computerDetail[0].staff.department }}</td>
             </tr>
             <tr>
               <th class="text-gray-400 text-left text-xs">Start date</th>
-              <td class="text-blue-800 px-4">{{ store.computerDetail[0].staff.start_date }}</td>
+              <td class="test-gray-900 px-4">{{ store.computerDetail[0].staff.start_date }}</td>
             </tr>
             <tr>
               <th class="text-gray-400 text-left text-xs">Return date</th>
-              <td class="text-blue-800 px-4">{{ store.computerDetail[0].staff.return_date }}</td>
+              <td class="test-gray-900 px-4">{{ store.computerDetail[0].staff.return_date }}</td>
             </tr>
           </tbody>
         </table>
@@ -164,10 +157,10 @@
     <div v-else></div>
   </div>
   <!-- show computer log -->
-  <div class="ml-8 my-8 text-xl text-blue-900">
+  <div class="my-8 text-xl text-blue-900">
     Computer Record
     <div v-if="log.serviceDetail">
-      <table class="w-1/2 mt-4">
+      <table class="w-full sm:w-3/5 mt-4">
         <tbody>
           <tr>
             <th class="text-left p-1 border-2 border-gray-200">Date</th>
